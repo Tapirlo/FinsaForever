@@ -9,7 +9,6 @@ namespace XUnitTestProject1
         public void Test1()
         {
             //ciao mondo
-            int x = 1;
         }
     }
 }
