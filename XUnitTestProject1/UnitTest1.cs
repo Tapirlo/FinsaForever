@@ -10,6 +10,7 @@ namespace XUnitTestProject1
         {
             //ciao mondo
             int x = 0;
+            x = 2;
         }
     }
 }
