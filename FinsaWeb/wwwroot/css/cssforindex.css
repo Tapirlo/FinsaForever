@@ -1,0 +1,117 @@
+﻿textarea {
+    resize: none;
+    border: 1px solid black;
+}
+
+body {
+    background-color: #D3D3D3;
+}
+
+li {
+    background-color: blue;
+    text-decoration: none;
+    font-weight: bold;
+    list-style: none;
+    display: inline-block;
+    font-size: 20px;
+    color: black;
+}
+    li:hover 
+    {
+        background-color: yellow;
+        text-decoration: none;
+        font-weight: bold;
+        list-style: none;
+        display: inline-block;
+        font-size: 20px;
+        color: black;
+    }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    background-color: #EEEEEE;
+    font-weight: bold;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #C0C0C0;
+    }
+
+    button:active {
+        background-color: #FF0000;
+    }
+
+span {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+    text-align: left;
+    background-color: #D3D3D3;
+}
+
+.studente {
+    display: inline-block;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+    font-weight: normal;
+}
+
+option {
+    list-style: none;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+}
+
+select {
+    list-style: none;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+}
+
+input {
+    display: inline-block;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+}
+
+div {
+    display: inline-block;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+}
+
+textarea {
+    font-size: 15px;
+    color: black;
+    text-align: left;
+}
+
+fieldset {
+    display: inline-block;
+    border: none;
+}
+
+.span2 {
+    font-size: 15px;
+    color: black;
+    text-align: left;
+}

@@ -1,0 +1,11 @@
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/bin/Debug/netcoreapp2.0/FinsaWeb.deps.json
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/bin/Debug/netcoreapp2.0/FinsaWeb.runtimeconfig.json
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/bin/Debug/netcoreapp2.0/FinsaWeb.runtimeconfig.dev.json
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/bin/Debug/netcoreapp2.0/FinsaWeb.dll
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/bin/Debug/netcoreapp2.0/FinsaWeb.pdb
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/obj/Debug/netcoreapp2.0/FinsaWeb.csprojAssemblyReference.cache
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/obj/Debug/netcoreapp2.0/FinsaWeb.csproj.CoreCompileInputs.cache
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/obj/Debug/netcoreapp2.0/FinsaWeb.AssemblyInfoInputs.cache
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/obj/Debug/netcoreapp2.0/FinsaWeb.AssemblyInfo.cs
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/obj/Debug/netcoreapp2.0/FinsaWeb.dll
+/Users/dariobrun/Downloads/FinsaForever-master/FinsaWeb/obj/Debug/netcoreapp2.0/FinsaWeb.pdb

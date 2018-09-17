@@ -1,23 +1,27 @@
-﻿using FinsaWeb.Models.Core;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using CorsiOnline.Models;
 
-namespace FinsaWeb.Controllers
+
+namespace CorsiOnline.Controllers
 {
     public class HomeController : Controller
     {
-        private DocentiRepository docentiRepo;
-        public HomeController(DocentiRepository docentiRepo)
+        private IRepositoryCorsi repository;
+        public HomeController(IRepositoryCorsi r)
         {
-            this.docentiRepo = docentiRepo;
+            repository = r;
         }
+
         public IActionResult Index()
         {
-            var result = docentiRepo.FindByName("ciccio");
-            return View(result);
+            IEnumerable<Corso> corsi = repository.GetAllCorsi();
+            return View(corsi);
         }
+
     }
+
 }

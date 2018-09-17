@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Finsa</title>
+    <link rel="stylesheet" href="~/css/cssforindex.css" />
+</head>
+<body >
+    <nav>
+        <div >
+            <div >
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index" >Lista Corsi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div >
+        <div >
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

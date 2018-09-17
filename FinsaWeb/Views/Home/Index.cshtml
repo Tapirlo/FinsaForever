@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Corso>
+@foreach (Corso corso in Model)
+{
+<div style="display:block;border-style:solid">
+    <span>Corso: @corso.Nome</span><br />
+    <span class="span2"> Da: @corso.DataInizio A:@corso.DataFine</span><br />
+    <span class="span2">Iscritti:</span><br />
+    <span class="span2">nessuno</span><br />
+</div>
+}
