@@ -6,5 +6,6 @@ namespace CorsiOnline.Models
     public interface IRepositoryCorsi
     {
         IEnumerable<Corso> GetAllCorsi();
+        bool AggiungiCorso(Corso c);
     }
 }

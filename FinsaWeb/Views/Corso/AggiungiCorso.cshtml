@@ -1,0 +1,16 @@
+﻿@model Corso
+
+<form asp-action="AggiungiCorso" method="post" role="form">
+    <span id="id">IDCorso:</span><br />
+    <input type="text" asp-for="IDCorso" /> <span asp-validation-for="IDCorso"></span>
+    <br />
+    <span id="nome">Nome Corso:</span><br />
+    <input type="text" asp-for="Nome" /> <span asp-validation-for="Nome"></span><br />
+
+    <span id="datainizio">Data inizio:</span><br />
+    <input type="date" asp-for="DataInizio" /><span asp-validation-for="DataInizio"></span><br />
+    <span id="datafine">Data fine:</span><br />
+    <input type="date" asp-for="DataFine" /><span asp-validation-for="DataFine"></span><br />
+    <button type="submit">Invia</button>
+
+</form>

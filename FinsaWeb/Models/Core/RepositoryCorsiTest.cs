@@ -22,5 +22,15 @@ namespace CorsiOnline.Models.Core
         {
             return corsi.ToArray();
         }
+
+        public bool AggiungiCorso(Corso corso)
+        {
+            if(corsi.Contains(corso))
+            {
+                return false;
+            }
+            corsi.Add(corso);
+            return true;
+        }
     }
 }
