@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CorsiOnline.Models.Database;
 
-namespace CorsiOnline.Models.Database
+namespace CorsiOnline.Models.Core
 {
-    public class StutenteRepository : IStundenteRepository
+    public class StudenteRepository : IStundenteRepository
     {
         private static List<Studente> students = new List<Studente>
         {

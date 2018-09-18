@@ -7,25 +7,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CorsiOnline.Models.Database
 {
-    [Table("docenticorsi")]
-    public class DocenteCorso
+    [Table("materiecorsi")]
+    public class MateriaCorso
     {
         [Column("corso")]
         [StringLength(25)]
         public string Corso { get; set; }
-        [Column("docente")]
+        [Column("materia")]
         [StringLength(25)]
-        public string Docente { get; set; }
-
-        [Column("punteggio")]
-        public int? Punteggio { get; set; }
-
-        [ForeignKey("Docente")]
-        [InverseProperty("DocentiCorsi")]
-        public Docente DocenteNavigation { get; set; }
+        public string Materia { get; set; }
 
         [ForeignKey("Corso")]
-        [InverseProperty("DocentiCorsi")]
+        [InverseProperty("MaterieCorsi")]
         public Corso CorsoNavigation { get; set; }
     }
 }
