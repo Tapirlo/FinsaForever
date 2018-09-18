@@ -13,12 +13,28 @@ namespace CorsiOnline.Models.Core
             new Studente
             {
                 CodiceFiscale = "XXXAAABBB",
-                Nome = "Pasticcio"
+                Nome = "Pasticcio",
+                Cognome = "TestA",
+                Email = "aaa@aa.aa",
+                Sesso = "M"
+
             },
              new Studente
             {
                 CodiceFiscale = "XXXAAACCC",
-                Nome = "Pasticcione"
+                Nome = "Pasticcione",
+                Cognome = "TestB",
+                Email = "aaa@aa.aa",
+                Sesso = "X"
+
+            },
+              new Studente
+            {
+                CodiceFiscale = "XXXAAADDD",
+                Nome = "Puccetta",
+                Cognome = "TestC",
+                Email = "aaa@aa.aa",
+                Sesso = "F"
 
             }
 
@@ -37,6 +53,13 @@ namespace CorsiOnline.Models.Core
             return stud;
         }
 
-        
+        public IEnumerable<Studente> FindAllStudents(string name)
+        {
+            List<Studente> stud = new List<Studente>();
+            //da implementare
+            return stud;
+        }
+
+
     }
 }
