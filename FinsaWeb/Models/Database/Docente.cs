@@ -5,14 +5,10 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CorsiOnline.Models.Database
+namespace CorsiOnline.Models
 {
-    public class Studente
+    public class Docente
     {
-        [Key]
-        [Column("codicefiscale")]
-        [StringLength(25)]
-        public String CodiceFiscale { get; set; }
 
         [Required]
         [Column("nome")]
@@ -25,18 +21,22 @@ namespace CorsiOnline.Models.Database
         public string Cognome { get; set; }
 
         [Required]
-        [Column("datanascita")]
-        public DateTime DataNascita { get; set; }
-
-
-        [Required]
-        [Column("sesso")]
-        [StringLength(1)]
-        public string Sesso { get; set; }
-
-        [Required]
         [Column("email")]
         [StringLength(25)]
         public string Email { get; set; }
+
+        [Required]
+        [Column("datanascita")]
+        public DateTime DataNascita { get; set; }
+
+        [Required]
+        [Column("telefono")]
+        [StringLength(10)]
+        public string Telefono { get; set; }
+
+        [Key]
+        [Column("codicefiscale")]
+        [StringLength(25)]
+        public string CodFiscale { get; set; }
     }
 }
