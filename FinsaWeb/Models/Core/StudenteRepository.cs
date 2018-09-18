@@ -6,7 +6,7 @@ using CorsiOnline.Models.Database;
 
 namespace CorsiOnline.Models.Core
 {
-    public class StudenteRepository : IStundenteRepository
+    public class StudenteRepository : IStudenteRepository
     {
         private static List<Studente> students = new List<Studente>
         {
@@ -60,6 +60,10 @@ namespace CorsiOnline.Models.Core
             return stud;
         }
 
-
+        public bool IscriviStudente(Studente studente, String nomecorso)
+        {
+            students.Add(studente);
+            return true;
+        }
     }
 }
