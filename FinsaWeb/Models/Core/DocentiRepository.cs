@@ -1,9 +1,10 @@
-﻿using System;
+﻿using FinsaWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FinsaWeb.Models.Core
+namespace CorsiOnline.Models.Core
 {
     public interface DocentiRepository
     {
