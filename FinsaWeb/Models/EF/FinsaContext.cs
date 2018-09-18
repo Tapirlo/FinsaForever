@@ -10,7 +10,7 @@ namespace CorsiOnline.Models.EF
     {
         public FinsaContext(DbContextOptions<FinsaContext> options) : base(options)
         {
-
+           //aaa
         }
         public DbSet<Docente> docenti { get; set; }
     }
