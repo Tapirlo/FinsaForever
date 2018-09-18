@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Corso>
+@foreach (Corso corso in Model)
+{
+<div style="display:block;border-style:solid">
+    <span>Corso: @corso.Nome</span><br />
+    <span class="span2"> Da: @corso.DataInizio A:@corso.DataFine</span><br /><br />
+
+    <span class="span2">Materie:</span><br />
+                                       <div style="display:block;border-style:none">
+                                           @foreach (MateriaCorso stud in corso.MaterieCorsi)
+                                           {
+
+
+                                               <span class="span3">@stud.Materia</span><br />
+
+
+
+                                           }
+                                       </div>
+    <br/>
+        <span class="span2">Docenti:</span><br />
+
+        @foreach (DocenteCorso stud in corso.DocentiCorsi)
+        {
+            Docente s = stud.DocenteNavigation;
+            <div style="display:block;border-style:none">
+                <span class="span3">@s.Nome @s.Cognome</span><br />
+                <span class="span3">codice fiscale: @s.CodiceFiscale</span><br />
+                <span class="span3">nato il @s.DataNascita</span><br />
+                <span class="span3">email: @s.Email</span><br />
+
+            </div>
+        }
+        <br />
+
+        <span class="span2">Iscritti:</span><br />
+
+        @foreach (StudenteCorso stud in corso.StudentiCorsi)
+        {
+            Studente s = stud.StudenteNavigation;
+            <div style="display:block;border-style:none">
+                <span class="span3">@s.Nome @s.Cognome</span><br />
+                <span class="span3">codice fiscale: @s.CodiceFiscale</span><br />
+                <span class="span3">nato il @s.DataNascita</span><br />
+                <span class="span3">email: @s.Email</span><br />
+
+            </div>
+        }
+
+    </div>
+}
