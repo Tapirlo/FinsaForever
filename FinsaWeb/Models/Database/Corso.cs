@@ -44,10 +44,10 @@ namespace CorsiOnline.Models.Database
        
         [InverseProperty("CorsoNavigation")]
         public ICollection<MateriaCorso> Materiecorsi { get; set; }
-        [InverseProperty("CorsoNavigation")]
-
-        public ICollection<SvolgimentoCorso> SvolgimentoCorsi { get; set; }
+       
         */
+        [InverseProperty("CorsoNavigation")]
+        public ICollection<PrenotazioneAula> PrenotazioniAule { get; set; }
 
         [InverseProperty("CorsoNavigation")]
         public ICollection<DocenteCorso> DocentiCorsi { get; set; }
