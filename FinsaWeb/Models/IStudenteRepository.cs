@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CorsiOnline.Models
 {
-    public interface IStundenteRepository
+    public interface IStudenteRepository
     {
         IEnumerable<Studente> FindByName(string name);
+        bool IscriviStudente(Studente studente,String nomecorso);
     }
 }

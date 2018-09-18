@@ -37,16 +37,21 @@ namespace CorsiOnline.Controllers
         [HttpPost]
         public IActionResult AggiungiCorso(Corso corso)
         {
-            if (repository.AggiungiCorso(corso))
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Completo");
 
-            }
-            else
-            {
-                return RedirectToAction("Incompleto");
+                if (repository.AggiungiCorso(corso))
+                {
+                    return RedirectToAction("Completo");
 
+                }
+                else
+                {
+                    return RedirectToAction("Incompleto");
+
+                }
             }
+            return View(corso);
         }
     }
 }

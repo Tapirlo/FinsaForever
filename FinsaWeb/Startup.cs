@@ -31,6 +31,8 @@ namespace FinsaWeb
             //services.AddSingleton<IRepositoryCorsi, RepositoryCorsiTest>();
             services.AddTransient<IRepositoryCorsi, RepositoryCorsi>();
             services.AddTransient<IDocentiRepository, RepositoryDocenti>();
+            services.AddTransient<IStudenteRepository, RepositoryStudenti>();
+
             services.AddMvc();
 
         }
