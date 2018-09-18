@@ -9,7 +9,7 @@ namespace CorsiOnline.Models.Database
     [Table("corsi")]
     public class Corso
     {
-
+        //ciao
         public Corso()
         {
            /* DocenteCorso = new HashSet<DocenteCorso>();
