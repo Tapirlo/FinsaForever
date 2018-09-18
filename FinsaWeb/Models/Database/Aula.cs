@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FinsaWeb.Model
+namespace CorsiOnline.Models.Database
 {
     public class Aula
     {
@@ -22,6 +22,9 @@ namespace FinsaWeb.Model
         [Required]
         [Column("superficie")]
         public int Superficie { get; set; }
+
+        [InverseProperty("AulaNavigation")]
+        public ICollection<PrenotazioneAula> PrenotazioniAule { get; set; }
 
     }
 }
