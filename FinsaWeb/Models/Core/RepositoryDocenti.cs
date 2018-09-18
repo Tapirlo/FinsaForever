@@ -20,23 +20,28 @@ namespace CorsiOnline.Models.Core
 
         public IEnumerable<Docente> FindByCF(string cf)
         {
-            throw new NotImplementedException();
+            return contesto.Docenti.Where(d => d.CodiceFiscale.Contains(cf)).ToList();
         }
 
         public IEnumerable<Docente> FindByName(string name)
         {
-            throw new NotImplementedException();
+            return contesto.Docenti.Where(d => d.Nome.Contains(name)).ToList();
         }
 
         public IEnumerable<Docente> FindBySurname(string surname)
         {
-            throw new NotImplementedException();
+            return contesto.Docenti.Where(d => d.Cognome.Contains(surname)).ToList();
         }
 
         public IEnumerable<Docente> GetAllDocenti()
         {
-            //return contesto.Docenti.Include(x => x.Nome).ToList();
             return contesto.Docenti.ToList();
+        }
+        public bool AggiungiDocente(Docente docente)
+        {
+            contesto.Docenti.Add(docente);
+            contesto.SaveChanges();
+            return true;
         }
     }
 }
