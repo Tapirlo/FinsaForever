@@ -21,5 +21,32 @@ namespace CorsiOnline.Controllers
             
             return View(repository.GetAllCorsi());
         }
+
+        public IActionResult AggiungiCorso()
+        {
+            return View();
+        }
+        public IActionResult Completo()
+        {
+            return View();
+        }
+        public IActionResult Incompleto()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AggiungiCorso(Corso corso)
+        {
+            if (repository.AggiungiCorso(corso))
+            {
+                return RedirectToAction("Completo");
+
+            }
+            else
+            {
+                return RedirectToAction("Incompleto");
+
+            }
+        }
     }
 }

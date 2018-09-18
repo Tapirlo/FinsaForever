@@ -25,5 +25,15 @@ namespace CorsiOnline.Models.Core
         {
             return contesto.Corsi.Include(x => x.StudentiCorsi).ThenInclude(x => x.StudenteNavigation).Include(x => x.DocentiCorsi).ThenInclude(x => x.DocenteNavigation).Include(x => x.MaterieCorsi).ToList();
         }
+        public bool AggiungiCorso(Corso corso)
+        {
+            //if(contesto.Corsi.Contains(corso))
+            //{
+            //    return false;
+            //}
+            contesto.Corsi.Add(corso);
+            contesto.SaveChanges();
+            return true;
+        }
     }
 }
