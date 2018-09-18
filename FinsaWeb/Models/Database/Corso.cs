@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CorsiOnline.Models.Database
 {
+    [Table("corsi")]
     public class Corso
     {
 
@@ -55,6 +56,8 @@ namespace CorsiOnline.Models.Database
         [InverseProperty("CorsoNavigation")]
         public ICollection<StudenteCorso> StudentiCorsi { get; set; }
 
+        [InverseProperty("CorsoNavigation")]
+        public ICollection<MateriaCorso> MaterieCorsi { get; set; }
 
         public override bool Equals(object obj)
         {

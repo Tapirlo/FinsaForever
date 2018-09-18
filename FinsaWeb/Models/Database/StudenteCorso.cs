@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace CorsiOnline.Models.Database
 {
+    [Table("studenticorsi")]
     public class StudenteCorso
     {
         [Column("studente")]

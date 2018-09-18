@@ -8,6 +8,7 @@ using CorsiOnline.Models.Database;
 
 namespace CorsiOnline.Models
 {
+    [Table("docenti")]
     public class Docente
     {
 
@@ -38,9 +39,12 @@ namespace CorsiOnline.Models
         [Key]
         [Column("codicefiscale")]
         [StringLength(25)]
-        public string CodFiscale { get; set; }
+        public string CodiceFiscale { get; set; }
 
         [InverseProperty("DocenteNavigation")]
         public ICollection<DocenteCorso> DocentiCorsi { get; set; }
+
+        [InverseProperty("DocenteNavigation")]
+        public ICollection<Insegnamento> Insegnamenti { get; set; }
     }
 }

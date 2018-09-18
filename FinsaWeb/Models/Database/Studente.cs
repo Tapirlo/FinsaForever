@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CorsiOnline.Models.Database
 {
+    [Table("studenti")]
     public class Studente
     {
         [Key]
