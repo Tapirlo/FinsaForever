@@ -1,5 +1,4 @@
 ﻿using CorsiOnline.Models.Core;
-using FinsaWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
