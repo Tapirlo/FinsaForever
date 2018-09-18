@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CorsiOnline.Models.Database;
 
 namespace CorsiOnline.Models
 {
@@ -38,5 +39,8 @@ namespace CorsiOnline.Models
         [Column("codicefiscale")]
         [StringLength(25)]
         public string CodFiscale { get; set; }
+
+        [InverseProperty("DocenteNavigation")]
+        public ICollection<DocenteCorso> DocentiCorsi { get; set; }
     }
 }
