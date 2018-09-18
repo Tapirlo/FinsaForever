@@ -1,10 +1,11 @@
-﻿using FinsaWeb.Models.Core;
+﻿using CorsiOnline.Models.Core;
+using FinsaWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FinsaWeb.Models.EF
+namespace CorsiOnline.Models.EF
 {
     public class EFDocentiRepository : DocentiRepository
     {

@@ -8,8 +8,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Views\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="Views\Home\" />
-    <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
