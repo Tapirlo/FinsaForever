@@ -4,7 +4,7 @@ using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CorsiOnline.Models
+namespace CorsiOnline.Models.Database
 {
     public class Corso
     {
@@ -46,10 +46,13 @@ namespace CorsiOnline.Models
         [InverseProperty("CorsoNavigation")]
         public ICollection<MateriaCorso> Materiecorsi { get; set; }
         [InverseProperty("CorsoNavigation")]
-        public ICollection<StudenteCorso> StudenteCorso { get; set; }
-        [InverseProperty("IdcorsoNavigation")]
+
         public ICollection<SvolgimentoCorso> SvolgimentoCorsi { get; set; }
         */
+
+        [InverseProperty("CorsoNavigation")]
+        public ICollection<StudenteCorso> StudentiCorsi { get; set; }
+
 
         public override bool Equals(object obj)
         {
