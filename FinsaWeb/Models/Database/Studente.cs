@@ -38,5 +38,8 @@ namespace CorsiOnline.Models.Database
         [Column("email")]
         [StringLength(25)]
         public string Email { get; set; }
+
+        [InverseProperty("StudenteNavigation")]
+        public ICollection<StudenteCorso> StudentiCorsi { get; set; }
     }
 }
