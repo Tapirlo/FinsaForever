@@ -11,12 +11,12 @@ namespace CorsiOnline.Models.Database
         {
             new Studente
             {
-                Id = 1,
+                CodiceFiscale = "XXXAAABBB",
                 Nome = "Pasticcio"
             },
              new Studente
             {
-                Id = 2,
+                CodiceFiscale = "XXXAAACCC",
                 Nome = "Pasticcione"
 
             }
