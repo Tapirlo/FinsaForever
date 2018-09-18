@@ -1,0 +1,32 @@
+﻿@model StudenteModel
+
+<form asp-action="IscriviStudente" method="post" role="form">
+    <span id="nome">Nome:</span><br />
+    <input type="text" asp-for="UnAlunno.Nome" /> <span asp-validation-for="UnAlunno.Nome"></span>
+    <br />
+    <span id="cognome">Cognome:</span><br />
+    <input type="text" asp-for="UnAlunno.Cognome" /> <span asp-validation-for="UnAlunno.Cognome"></span><br />
+    <span id="telefono">Sesso:</span><br />
+    <input type="text" asp-for="UnAlunno.Sesso" /> <span asp-validation-for="UnAlunno.Sesso"></span><br />
+    <span id="codicefiscale">Codice Fiscale:</span><br />
+    <input type="text" asp-for="UnAlunno.CodiceFiscale" /> <span asp-validation-for="UnAlunno.CodiceFiscale"></span><br />
+    <span id="indirizzo">Indirizzo Mail:</span><br />
+    <input type="text" asp-for="UnAlunno.Email" /><span asp-validation-for="UnAlunno.Email"></span><br />
+
+    <span id="corso">Corsi:</span><br />
+    <select asp-for="UnCorso">
+
+        @foreach (var c in Model.Corsi)
+        {
+            <option value="@c.IDCorso">@c.Nome</option>
+
+        }
+
+
+    </select><br />
+    <span id="datanascita">Data di nascita:</span><br />
+    <input type="date" asp-for="UnAlunno.DataNascita" /><span asp-validation-for="UnAlunno.DataNascita"></span><br />
+
+    <button type="submit">Invia</button>
+
+</form>
