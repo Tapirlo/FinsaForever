@@ -3,6 +3,7 @@ using System.Linq;
 using System;
 using CorsiOnline.Models.Database;
 using CorsiOnline.Models;
+using CorsiOnline.Models.Core;
 using Xunit.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -15,9 +16,11 @@ namespace XUnitTestProject1
         IRepositoryCorsi repoCorsi;
         ITestOutputHelper output;
 
-        public UnitTest1(ContestoCorso corso)
+        public UnitTest1()
         {
-            _context = corso;
+            _context = ContextFactory.CreateContext();
+            repoCorsi = new RepositoryCorsi(_context);
+            
         }
 
         public void Dispose()

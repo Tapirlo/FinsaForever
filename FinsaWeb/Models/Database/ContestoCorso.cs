@@ -12,6 +12,8 @@ namespace CorsiOnline.Models.Database
         {
 
         }
+  
+  
 
         public virtual DbSet<Studente> Studenti { get; set; }
         public virtual DbSet<Aula> Aule { get; set; }
