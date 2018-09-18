@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CorsiOnline.Models;
-
+using CorsiOnline.Models.Database
 
 namespace CorsiOnline.Controllers
 {
