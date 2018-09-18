@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Docente>
+@foreach (Docente docente in Model)
+{
+    <div style="display:block;border-style:solid">
+        <span>Nome: @docente.Nome</span><br />
+        <span>Cognome: @docente.Cognome</span><br />
+        <span>Data di Nascita: @docente.DataNascita</span><br />
+    </div>
+}

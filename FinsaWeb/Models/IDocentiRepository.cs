@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace CorsiOnline.Models.Core
 {
-    public interface DocentiRepository
+    public interface IDocentiRepository
     {
         IEnumerable<Docente> FindByName(string name);
+        IEnumerable<Docente> FindBySurname(string surname);
+        IEnumerable<Docente> FindByCF(string cf);
+        IEnumerable<Docente> GetAllDocenti();
     }
 }

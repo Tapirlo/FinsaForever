@@ -30,6 +30,7 @@ namespace FinsaWeb
                Configuration.GetConnectionString("DefaultConnection")));
             //services.AddSingleton<IRepositoryCorsi, RepositoryCorsiTest>();
             services.AddTransient<IRepositoryCorsi, RepositoryCorsi>();
+            services.AddTransient<IDocentiRepository, RepositoryDocenti>();
             services.AddMvc();
 
         }
