@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CorsiOnline.Models;
 using CorsiOnline.Models.Database;
+using CorsiOnline.Models.Core;
 
 namespace FinsaWeb
 {
@@ -27,8 +28,8 @@ namespace FinsaWeb
         {
             services.AddDbContext<ContestoCorso>(opts => opts.UseSqlServer(
                Configuration.GetConnectionString("DefaultConnection")));
-            services.AddSingleton<IRepositoryCorsi, RepositoryCorsiTest>();
-
+            //services.AddSingleton<IRepositoryCorsi, RepositoryCorsiTest>();
+            services.AddTransient<IRepositoryCorsi, RepositoryCorsi>();
             services.AddMvc();
 
         }
