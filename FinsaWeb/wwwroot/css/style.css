@@ -54,7 +54,6 @@ label {
 	/* Hide the browser's default checkbox */
 	.container input {
 		position: absolute;
-		opacity: 0;
 		cursor: pointer;
 	}
 
@@ -120,7 +119,6 @@ label {
 	/* Hide the browser's default radio button */
 	.container1 input {
 		position: absolute;
-		opacity: 0;
 	}
 
 /* Create a custom radio button */
