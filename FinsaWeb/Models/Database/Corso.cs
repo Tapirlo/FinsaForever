@@ -41,14 +41,16 @@ namespace CorsiOnline.Models.Database
         public DateTime DataFine { get; set; }
 
         /*
-        [InverseProperty("CorsoNavigation")]
-        public ICollection<DocenteCorso> DocenteCorso { get; set; }
+       
         [InverseProperty("CorsoNavigation")]
         public ICollection<MateriaCorso> Materiecorsi { get; set; }
         [InverseProperty("CorsoNavigation")]
 
         public ICollection<SvolgimentoCorso> SvolgimentoCorsi { get; set; }
         */
+
+        [InverseProperty("CorsoNavigation")]
+        public ICollection<DocenteCorso> DocentiCorsi { get; set; }
 
         [InverseProperty("CorsoNavigation")]
         public ICollection<StudenteCorso> StudentiCorsi { get; set; }
