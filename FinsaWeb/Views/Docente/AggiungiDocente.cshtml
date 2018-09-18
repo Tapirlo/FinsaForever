@@ -1,0 +1,18 @@
+﻿@model Docente
+<div>
+    <form asp-action="AggiungiDocente" method="post" role="form">
+        <span id="nome">Nome:</span><br />
+        <input type="text" asp-for="Nome" /> <span asp-validation-for="Nome"></span><br />
+        <span id="cognome">Cognome:</span><br />
+        <input type="text" asp-for="Cognome" /> <span asp-validation-for="Cognome"></span><br />
+        <span id="dataNascita">Data di Nascita:</span><br />
+        <input type="date" asp-for="DataNascita" /><span asp-validation-for="DataNascita"></span><br />
+        <span id="email">Email:</span><br />
+        <input type="text" asp-for="Email" /> <span asp-validation-for="Email"></span><br />
+        <span id="codiceFiscale">Codice Fiscale:</span><br />
+        <input type="text" asp-for="CodiceFiscale" /> <span asp-validation-for="CodiceFiscale"></span><br />
+        <span id="telefono">Telefono:</span><br />
+        <input type="text" asp-for="Telefono" /> <span asp-validation-for="Telefono"></span><br />
+        <button type="submit">Invia</button>
+    </form>
+</div>

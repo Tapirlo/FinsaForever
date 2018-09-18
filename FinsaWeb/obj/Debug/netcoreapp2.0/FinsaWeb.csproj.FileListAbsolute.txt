@@ -41,3 +41,4 @@ C:\Users\Allievo 8\Source\Repos\FinsaForever\FinsaWeb\bin\Debug\netcoreapp2.0\Fi
 C:\Users\Allievo 8\Source\Repos\FinsaForever\FinsaWeb\bin\Debug\netcoreapp2.0\FinsaWeb.runtimeconfig.dev.json
 C:\Users\Allievo 8\Source\Repos\FinsaForever\FinsaWeb\bin\Debug\netcoreapp2.0\FinsaWeb.dll
 C:\Users\Allievo 8\Source\Repos\FinsaForever\FinsaWeb\bin\Debug\netcoreapp2.0\FinsaWeb.pdb
+C:\Users\Allievo 8\Source\Repos\FinsaForever\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.csprojAssemblyReference.cache
