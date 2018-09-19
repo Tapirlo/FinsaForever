@@ -35,11 +35,15 @@ namespace CorsiOnline.Models.Core
 
         public IEnumerable<Docente> GetAllDocenti()
         {
-            return contesto.Docenti.ToList();
+            return contesto.Docenti.Include(x => x.Insegnamenti).ToList();
         }
-        public bool AggiungiDocente(Docente docente)
+        public bool AggiungiDocente(Docente docente, IEnumerable<Insegnamento> insegnamenti)
         {
             contesto.Docenti.Add(docente);
+            foreach(Insegnamento inse in insegnamenti)
+            {
+                contesto.Insegnamenti.Add(inse);
+            }
             contesto.SaveChanges();
             return true;
         }

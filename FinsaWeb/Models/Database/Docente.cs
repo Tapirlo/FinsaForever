@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CorsiOnline.Models.Database;
 
-namespace CorsiOnline.Models
+namespace CorsiOnline.Models.Database
 {
     [Table("docenti")]
     public class Docente
