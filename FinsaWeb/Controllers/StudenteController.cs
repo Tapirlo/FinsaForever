@@ -54,6 +54,11 @@ namespace CorsiOnline.Controllers
         {
             return View();
         }
+        public IActionResult Index()
+        {
+
+            return View(repositoryStudenti.GetAllStudenti());
+        }
     }
 
 }

@@ -10,5 +10,6 @@ namespace CorsiOnline.Models
     {
         IEnumerable<Studente> FindByName(string name);
         bool IscriviStudente(Studente studente,String nomecorso);
+        IEnumerable<Studente> GetAllStudenti();
     }
 }
