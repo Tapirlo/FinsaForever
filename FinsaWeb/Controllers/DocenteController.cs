@@ -13,6 +13,7 @@ namespace CorsiOnline.Controllers
     public class DocenteController : Controller
     {
         private IDocentiRepository repository;
+        
 
         public DocenteController(IDocentiRepository repo)
         {
@@ -29,17 +30,30 @@ namespace CorsiOnline.Controllers
         [HttpPost]
         public IActionResult AggiungiDocente(DocenteModel docente)
         {
+            if (ModelState.IsValid)
+            {
+                if (repository.AggiungiDocente(docente.UnDocente, docente.RegistraMaterie()))
+                {
 
-            if (repository.AggiungiDocente(docente.UnDocente,docente.RegistraMaterie()))
-            {
-               
-                return View();
-            }
-            else
-            {
-                return View();
-            }
+                    return RedirectToAction("Completo");
+                }
+                else
+                {
+                    return RedirectToAction("Incompleto");
+                }
+            }            
+            return View(docente);
+
         }
+        public IActionResult Completo()
+        {
+            return View();
+        }
+        public IActionResult Incompleto()
+        {
+            return View();
+        }
+
         public IActionResult CercaDocente()
         {
             

@@ -1,23 +1,23 @@
 ﻿@model DocenteModel
 <div>
-    <form asp-action="AggiungiDocente" method="post" role="form">
-        <span id="nome">Nome:</span><br />
-        <input type="text" asp-for="UnDocente.Nome" /> <span asp-validation-for="UnDocente.Nome"></span><br />
-        <span id="cognome">Cognome:</span><br />
-        <input type="text" asp-for="UnDocente.Cognome" /> <span asp-validation-for="UnDocente.Cognome"></span><br />
-        <span id="dataNascita">Data di Nascita:</span><br />
-        <input type="date" asp-for="UnDocente.DataNascita" /><span asp-validation-for="UnDocente.DataNascita"></span><br />
-        <span id="email">Email:</span><br />
-        <input type="text" asp-for="UnDocente.Email" /> <span asp-validation-for="UnDocente.Email"></span><br />
-        <span id="codiceFiscale">Codice Fiscale:</span><br />
-        <input type="text" asp-for="UnDocente.CodiceFiscale" /> <span asp-validation-for="UnDocente.CodiceFiscale"></span><br />
-        <span id="telefono">Telefono:</span><br />
-        <input type="text" asp-for="UnDocente.Telefono" /> <span asp-validation-for="UnDocente.Telefono"></span><br />
-        <span id="telefono">Materie:</span><br />
+		<form asp-action="AggiungiDocente" method="post" role="form"> Aggiungi Docente <br /><br />		
+		<span id="nome">Nome:</span><br />
+		<input type="text" asp-for="UnDocente.Nome" /> <span asp-validation-for="UnDocente.Nome"></span><br />
+		<span id="cognome">Cognome:</span><br />
+		<input type="text" asp-for="UnDocente.Cognome" /> <span asp-validation-for="UnDocente.Cognome"></span><br />
+		<span id="dataNascita">Data di Nascita:</span><br />
+		<input type="date" asp-for="UnDocente.DataNascita" /><span asp-validation-for="UnDocente.DataNascita"></span><br />
+		<span id="email">Email:</span><br />
+		<input type="text" asp-for="UnDocente.Email" /> <span asp-validation-for="UnDocente.Email"></span><br />
+		<span id="codiceFiscale">Codice Fiscale:</span><br />
+		<input type="text" asp-for="UnDocente.CodiceFiscale" /> <span asp-validation-for="UnDocente.CodiceFiscale"></span><br />
+		<span id="telefono">Telefono:</span><br />
+		<input type="text" asp-for="UnDocente.Telefono" /> <span asp-validation-for="UnDocente.Telefono"></span><br />
+		<span id="telefono">Materie:</span><br />
 
-        <input type="text" asp-for="Materie" /> <br />
+		<input type="text" asp-for="Materie" /> <br />
 
-        <button type="submit">Invia</button>
+		<button type="submit">Invia</button>
 
-    </form>
+	</form>
 </div>

@@ -1,16 +1,30 @@
 ﻿@model IEnumerable<Docente>
 
-<a asp-controller="Docente" asp-action="AggiungiDocente">Aggiungi Docente</a>
-<a asp-controller="Docente" asp-action="CercaDocente">Cerca Docente</a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div>
+			<ul class="nav navbar-nav">
+				<li> <a asp-controller="Docente" asp-action="AggiungiDocente">Aggiungi Docente</a></li>
+				<li> <a asp-controller="Docente" asp-action="CercaDocente">Lista Docenti</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-@foreach (Docente docente in Model)
-{
-    <div style="display:block;border-style:solid">
-        <span>Nome: @docente.Nome</span><br />
-        <span>Cognome: @docente.Cognome</span><br />
-        <span>Data di Nascita: @docente.DataNascita</span><br />
-        <span>Email: @docente.Email</span><br />
-        <span>Codice Fiscale: @docente.CodiceFiscale</span><br />
-        <span>Telefono: @docente.Telefono</span><br />
-    </div>
-}
+<div class="container body-content">
+	<div class="row">
+
+
+		@foreach (Docente docente in Model)
+		{
+			<div style="display:block;border-style:solid">
+				<span>Nome: @docente.Nome</span><br />
+				<span>Cognome: @docente.Cognome</span><br />
+				<span>Data di Nascita: @docente.DataNascita</span><br />
+				<span>Email: @docente.Email</span><br />
+				<span>Codice Fiscale: @docente.CodiceFiscale</span><br />
+				<span>Telefono: @docente.Telefono</span><br />
+			</div>
+		}
+	</div>
+</div>
