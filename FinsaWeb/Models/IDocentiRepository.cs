@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CorsiOnline.Models.Database;
 
 namespace CorsiOnline.Models.Core
 {
@@ -12,7 +13,7 @@ namespace CorsiOnline.Models.Core
         IEnumerable<Docente> FindBySurname(string surname);
         IEnumerable<Docente> FindByCF(string cf);
         IEnumerable<Docente> GetAllDocenti();
-        bool AggiungiDocente(Docente docente);
+        bool AggiungiDocente(Docente docente, IEnumerable<Insegnamento> insegnamenti);
 
     }
 }

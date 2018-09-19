@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using CorsiOnline.Models;
 using CorsiOnline.Models.Core;
 using Microsoft.AspNetCore.Mvc;
+using CorsiOnline.ViewModels;
+using CorsiOnline.Models.Database;
 
 namespace CorsiOnline.Controllers
 {
@@ -25,10 +27,12 @@ namespace CorsiOnline.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AggiungiDocente(Docente docente)
+        public IActionResult AggiungiDocente(DocenteModel docente)
         {
-            if (repository.AggiungiDocente(docente))
+
+            if (repository.AggiungiDocente(docente.UnDocente,docente.RegistraMaterie()))
             {
+               
                 return View();
             }
             else
@@ -38,7 +42,8 @@ namespace CorsiOnline.Controllers
         }
         public IActionResult CercaDocente()
         {
-            return View();
+            
+            return View(repository.GetAllDocenti());
         }
     }
 }
