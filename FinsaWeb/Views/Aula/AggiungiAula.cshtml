@@ -1,0 +1,15 @@
+﻿@model Aula
+<div>
+    <form asp-action="AggiungiAula" method="post" role="form">
+        <span id="nome">Nome Aula:</span><br />
+        <input type="text" asp-for="NomeAula" /> <span asp-validation-for="NomeAula"></span><br />
+        <span id="cognome">Numero Posti:</span><br />
+        <input type="text" asp-for="NumeroPosti" /> <span asp-validation-for="NumeroPosti"></span><br />
+        <span id="dataNascita">Numero Computer:</span><br />
+        <input type ="text" asp-for="NumeroComputer" /><span asp-validation-for="NumeroComputer"></span><br />
+        <span id="email">Superficie:</span><br />
+        <input type="text" asp-for="Superficie" /> <span asp-validation-for="Superficie"></span><br />
+        <button type="submit">Invia</button>
+
+    </form>
+</div>
