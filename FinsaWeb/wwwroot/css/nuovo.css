@@ -1,0 +1,46 @@
+﻿
+.spantitle {
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    color: black;
+    margin: 10px 10px 10px 10px;
+}
+
+.spanproperty {
+    font-size: 15px;
+    font-weight: inherit;
+    font-style: italic;
+    color: black;
+    margin: 0px 0px 0px 0px;
+}
+
+.spansubtitle {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    color: black;
+    margin: 0px 0px 0px 0px;
+}
+.divcontainer
+{
+    display:block;
+    background-color:#D3D3D3;
+    border:none;
+
+}
+
+.divsubcontainer {
+    display: inline-block;
+    background-color: #FFFFFF;
+    border-style: groove;
+    border:solid;
+    border-color:blue;
+}
+.divprincipale {
+    display:block;
+    border-style:dashed;
+    border-color:#D3D3D3;
+    background-color:aliceblue;
+
+}
