@@ -43,5 +43,9 @@ namespace CorsiOnline.Models.Core
             }
 
         }
+        public IEnumerable<Studente> GetAllStudenti()
+        {
+            return contesto.Studenti.ToList();
+        }
     }
 }

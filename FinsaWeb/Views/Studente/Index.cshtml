@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Studente>
+@foreach (Studente studente in Model)
+{
+	<div style="display:block;border-style:solid">
+		<span>Studente: @studente.Nome @studente.Cognome</span><br />
+		<span class="span2"> @studente.DataNascita </span><br />
+		<span class="span2"> @studente.Sesso  </span><br />
+		<span class="span2"> @studente.Email  </span><br />
+	</div>
+}
