@@ -3,17 +3,17 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Super Finsa</title>
-    <link href="~/lib/bootstrap4.1.3/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/css/nuovo.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    
 
 
 </head>
 <body >
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav >
+        <div >
             <div>
-                <ul class="nav navbar-nav">
+                <ul >
                     <li><a asp-controller="Aula" asp-action="AggiungiAula">Aggiungi aula</a></li>
 
                     <li><a asp-controller="Corso" asp-action="Index">Lista Corsi</a></li>
@@ -25,8 +25,8 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        <div class="row">
+    <div >
+        <div >
             @RenderBody()
         </div>
     </div>
