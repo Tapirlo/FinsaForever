@@ -1,54 +1,5 @@
 ﻿@model IEnumerable<Corso>
 @foreach (Corso corso in Model)
 {
-<div class="divprincipale">
-    <span class="spantitle">@corso.Nome</span><br />
-    <span class="spansubtitle"> Data:</span><br />
-    <span class="spanproperty">Da @corso.DataInizio <br/>
-    A: @corso.DataFine</span><br /><br />
-
-    <span class="spansubtitle">Materie:</span><br />
-                                       <div class="divcontainer">
-                                           @foreach (MateriaCorso stud in corso.MaterieCorsi)
-                                           {
-
-
-                                               <span class="spanproperty">@stud.Materia</span><br />
-
-
-
-                                           }
-                                       </div>
-    <br/>
-        <span class="spansubtitle">Docenti:</span><br />
-                                                  <div class="divcontainer">
-                                                      @foreach (DocenteCorso stud in corso.DocentiCorsi)
-                                                      {
-                                                          Docente s = stud.DocenteNavigation;
-                                                          <div class="divsubcontainer">
-                                                              <span class="spanproperty">@s.Nome @s.Cognome</span><br />
-                                                              <span class="spanproperty">codice fiscale @s.CodiceFiscale</span><br />
-                                                              <span class="spanproperty">nato il @s.DataNascita</span><br />
-                                                              <span class="spanproperty">email: @s.Email</span><br />
-
-                                                          </div>
-                                                      }
-                                                  </div>
-        <br />
-
-        <span class="spansubtitle">Iscritti:</span><br />
-                                                   <div class="divcontainer">
-                                                       @foreach (StudenteCorso stud in corso.StudentiCorsi)
-                                                       {
-                                                           Studente s = stud.StudenteNavigation;
-                                                           <div class="divsubcontainer">
-                                                               <span class="spanproperty">@s.Nome @s.Cognome</span><br />
-                                                               <span class="spanproperty">codice fiscale: @s.CodiceFiscale</span><br />
-                                                               <span class="spanproperty">nato il @s.DataNascita</span><br />
-                                                               <span class="spanproperty">email: @s.Email</span><br />
-
-                                                           </div>
-                                                       }
-                                                   </div>
-    </div>
+    @Html.Partial("CorsoOverview", corso)
 }

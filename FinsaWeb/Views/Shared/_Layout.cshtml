@@ -8,13 +8,14 @@
 
 
 </head>
-<body >
+<body>
 
-    <nav >
-        <div >
+    <nav>
+        <div>
             <div>
-                <ul >
+                <ul>
                     <li><a asp-controller="Aula" asp-action="AggiungiAula">Aggiungi aula</a></li>
+                    <li><a asp-controller="Corso" asp-action="CercaCorsi">Cerca corsi</a></li>
 
                     <li><a asp-controller="Corso" asp-action="Index">Lista Corsi</a></li>
                     <li><a asp-controller="Corso" asp-action="AggiungiCorso">Aggiungi nuovo corso</a></li>
@@ -25,10 +26,11 @@
             </div>
         </div>
     </nav>
-    <div >
-        <div >
+    <div>
+        <div>
             @RenderBody()
         </div>
     </div>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

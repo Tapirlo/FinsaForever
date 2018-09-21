@@ -20,7 +20,10 @@ namespace CorsiOnline.Models.Core
         {
             contesto = ctx;
         }
-
+        public IEnumerable<Corso> GetCorsiByName(String name)
+        {
+            return contesto.Corsi.Include(x => x.StudentiCorsi).ThenInclude(x => x.StudenteNavigation).Include(x => x.DocentiCorsi).ThenInclude(x => x.DocenteNavigation).Include(x => x.MaterieCorsi).Where(x=>x.Nome.Contains(name)).ToList();
+        }
         public IEnumerable<Corso> GetAllCorsi()
         {
             return contesto.Corsi.Include(x => x.StudentiCorsi).ThenInclude(x => x.StudenteNavigation).Include(x => x.DocentiCorsi).ThenInclude(x => x.DocenteNavigation).Include(x => x.MaterieCorsi).ToList();

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Corso\CercaCorsi.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\EF\" />
   </ItemGroup>
 
@@ -14,6 +18,9 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Corso\CercaCorsi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Aula\Complete.cshtml">

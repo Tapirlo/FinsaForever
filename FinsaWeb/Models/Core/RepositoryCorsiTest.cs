@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CorsiOnline.Models.Database;
+using System.Linq;
 namespace CorsiOnline.Models.Core
 {
     public class RepositoryCorsiTest:IRepositoryCorsi
@@ -22,7 +23,10 @@ namespace CorsiOnline.Models.Core
         {
             return corsi.ToArray();
         }
-
+        public IEnumerable<Corso> GetCorsiByName(String name)
+        {
+            return corsi.Where(x => x.Nome.Contains(name)).ToList();
+        }
         public bool AggiungiCorso(Corso corso)
         {
             if(corsi.Contains(corso))

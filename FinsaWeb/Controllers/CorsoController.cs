@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CorsiOnline.Models;
 using CorsiOnline.Models.Database;
+using CorsiOnline.ViewModels;
 
 namespace CorsiOnline.Controllers
 {
@@ -23,6 +24,10 @@ namespace CorsiOnline.Controllers
         }
 
         public IActionResult AggiungiCorso()
+        {
+            return View();
+        }
+        public IActionResult CercaCorsi()
         {
             return View();
         }
@@ -52,6 +57,18 @@ namespace CorsiOnline.Controllers
                 }
             }
             return View(corso);
+        }
+
+        public IEnumerable<CorsoModels> ListaCorsi(String nome)
+        {
+            var c= repository.GetCorsiByName(nome);
+            List<CorsoModels> lista = new List<CorsoModels>();
+            foreach(var cc in c )
+            {
+                lista.Add(new CorsoModels(cc));
+            }
+            return lista;
+            //return repository.GetCorsiByName(nome);
         }
     }
 }

@@ -1,0 +1,70 @@
+﻿<div class="divprincipale">
+    <input type="text" id="ricercacorso" />
+</div>
+
+<div class="divprincipale" id="output"></div>
+
+@section scripts{
+
+<script>
+        function caricaCorsi()
+        {
+            var xhttp=new XMLHttpRequest();
+            xhttp.onreadystatechange=function()
+            {
+                if(this.readyState==4&&this.status==200)
+                {
+                   /*var listaCorsi=JSON.parse(this.responseText);
+                    var ildiv=document.getElementById("output");
+                    for(let i=0; i<listaCorsi.length; i++)
+                    {
+                        ildiv.innerHTML+=getHtmlCorso(listaCorsi[i]);
+                    }*/
+                    var ildiv = document.getElementById("output");
+                    var icorsi = JSON.parse(this.responseText);
+                    ildiv.innerHTML = "";
+                    for (let i = 0; i < icorsi.length; i++)
+                    {
+                        ildiv.innerHTML += getHtmlCorso(icorsi[i]);
+
+                    }
+                }
+            }
+            xhttp.open("POST","/Corso/ListaCorsi",true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            var ilnome=document.getElementById("ricercacorso").value;
+            xhttp.send("nome="+ilnome);
+        };
+        function getHtmlCorso(corso)
+        {
+           
+            var testoHTML=[];
+            testoHTML[testoHTML.length] = "<div class='divprincipale'> <span class='spantitle'>";
+            testoHTML[testoHTML.length] = corso.nome;
+            testoHTML[testoHTML.length] = "</span><br /> <span class='spansubtitle'> Data:</span><br /> <span class='spanproperty'> Da";
+            testoHTML[testoHTML.length] = corso.dataInizio;
+            testoHTML[testoHTML.length] = "</span><br /> <span class='spanproperty'> A: ";
+            testoHTML[testoHTML.length] = corso.dataFine;
+            testoHTML[testoHTML.length] = "</span><br /><br /> <span class='spansubtitle'>Materie:</span><br /> <div class='divcontainer'>";
+            var lematerie = corso.argomenti;
+          
+            for (let i = 0; i < lematerie.length; i++)
+            {
+
+                testoHTML[testoHTML.length] = "<span class='spanproperty'>";
+
+                testoHTML[testoHTML.length] = lematerie[i];
+                testoHTML[testoHTML.length] = "</span > <br />";
+            }
+            return testoHTML.join(" ");
+    };
+    var bottone=document.getElementById("ricercacorso");
+
+   // bottone.onclick=caricaCorsi();
+        bottone.addEventListener("keyup",function(){
+    caricaCorsi();});
+
+
+</script>
+
+}
