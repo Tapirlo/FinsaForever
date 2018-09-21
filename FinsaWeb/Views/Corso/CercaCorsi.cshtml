@@ -14,12 +14,7 @@
             {
                 if(this.readyState==4&&this.status==200)
                 {
-                   /*var listaCorsi=JSON.parse(this.responseText);
-                    var ildiv=document.getElementById("output");
-                    for(let i=0; i<listaCorsi.length; i++)
-                    {
-                        ildiv.innerHTML+=getHtmlCorso(listaCorsi[i]);
-                    }*/
+                  
                     var ildiv = document.getElementById("output");
                     var icorsi = JSON.parse(this.responseText);
                     ildiv.innerHTML = "";
@@ -30,10 +25,10 @@
                     }
                 }
             }
-            xhttp.open("POST","/Corso/ListaCorsi",true);
+            var ilnome = document.getElementById("ricercacorso").value;
+            xhttp.open("GET", "/Corso/ListaCorsi?nome="+ilnome,true);
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            var ilnome=document.getElementById("ricercacorso").value;
-            xhttp.send("nome="+ilnome);
+            xhttp.send(null);
         };
         function getHtmlCorso(corso)
         {
@@ -60,9 +55,7 @@
     };
     var bottone=document.getElementById("ricercacorso");
 
-   // bottone.onclick=caricaCorsi();
-        bottone.addEventListener("keyup",function(){
-    caricaCorsi();});
+    bottone.addEventListener("keyup", caricaCorsi);
 
 
 </script>
