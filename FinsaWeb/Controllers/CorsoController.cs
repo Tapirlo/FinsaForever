@@ -23,6 +23,11 @@ namespace CorsiOnline.Controllers
             return View(repository.GetAllCorsi());
         }
 
+        public IActionResult UpdateCorso()
+        {
+            return View(repository.GetAllCorsi());
+        }
+
         public IActionResult AggiungiCorso()
         {
             return View();
@@ -59,16 +64,6 @@ namespace CorsiOnline.Controllers
             return View(corso);
         }
 
-        public IEnumerable<CorsoModels> ListaCorsi(String nome)
-        {
-            var c= repository.GetCorsiByName(nome);
-            List<CorsoModels> lista = new List<CorsoModels>();
-            foreach(var cc in c )
-            {
-                lista.Add(new CorsoModels(cc));
-            }
-            return lista;
-            //return repository.GetCorsiByName(nome);
-        }
+       
     }
 }

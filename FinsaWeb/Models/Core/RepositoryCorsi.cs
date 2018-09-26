@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CorsiOnline.Models.Core
 {
-    public class RepositoryCorsi:IRepositoryCorsi,IDisposable
+    public class RepositoryCorsi : IRepositoryCorsi, IDisposable
     {
         public void Dispose()
         {
@@ -22,7 +22,7 @@ namespace CorsiOnline.Models.Core
         }
         public IEnumerable<Corso> GetCorsiByName(String name)
         {
-            return contesto.Corsi.Include(x => x.StudentiCorsi).ThenInclude(x => x.StudenteNavigation).Include(x => x.DocentiCorsi).ThenInclude(x => x.DocenteNavigation).Include(x => x.MaterieCorsi).Where(x=>x.Nome.Contains(name)).ToList();
+            return contesto.Corsi.Include(x => x.StudentiCorsi).ThenInclude(x => x.StudenteNavigation).Include(x => x.DocentiCorsi).ThenInclude(x => x.DocenteNavigation).Include(x => x.MaterieCorsi).Where(x => x.Nome.Contains(name)).ToList();
         }
         public IEnumerable<Corso> GetAllCorsi()
         {
@@ -37,6 +37,28 @@ namespace CorsiOnline.Models.Core
             contesto.Corsi.Add(corso);
             contesto.SaveChanges();
             return true;
+        }
+
+        public bool UpdateCorso(Corso c)
+        {
+            try
+            {
+                Corso vecchio = contesto.Corsi.Where(x => x.IDCorso == c.IDCorso).First();
+                vecchio.Nome = c.Nome;
+                vecchio.DataInizio = c.DataInizio;
+                vecchio.DataFine = c.DataFine;
+                contesto.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public Corso GetCorsoByID(String idcorso)
+        {
+            return contesto.Corsi.Where(x => x.IDCorso == idcorso).First();
         }
     }
 }

@@ -7,6 +7,8 @@ namespace CorsiOnline.Models
     {
         IEnumerable<Corso> GetAllCorsi();
         IEnumerable<Corso> GetCorsiByName(String name);
+        Corso GetCorsoByID(String idcorso);
         bool AggiungiCorso(Corso c);
+        bool UpdateCorso(Corso c);
     }
 }

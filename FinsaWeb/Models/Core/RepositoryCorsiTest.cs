@@ -36,5 +36,28 @@ namespace CorsiOnline.Models.Core
             corsi.Add(corso);
             return true;
         }
+
+        public bool UpdateCorso(Corso c)
+        {
+            int n = corsi.IndexOf(c);
+            if(n<0)
+            {
+                return false;
+            }
+            corsi[n] = c;
+            return true;
+        }
+
+        public Corso GetCorsoByID(String idcorso)
+        {
+            for(int i=0;i<corsi.Count;i++)
+            {
+                if(corsi[i].IDCorso==idcorso)
+                {
+                    return corsi[i];
+                }
+            }
+            return null;
+        }
     }
 }

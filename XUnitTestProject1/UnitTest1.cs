@@ -44,8 +44,7 @@ namespace XUnitTestProject1
                 };
                 repoCorsi.AggiungiCorso(corsi);
                 Assert.Equal(CountCorsiIniziale + 1, _context.Corsi.Count());
-                _context.Remove(corsi);
-                _context.SaveChanges();
+                transaction.Rollback();
             }
         }
     }

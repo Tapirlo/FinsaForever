@@ -26,7 +26,7 @@
                 }
             }
             var ilnome = document.getElementById("ricercacorso").value;
-            xhttp.open("GET", "/Corso/ListaCorsi?nome="+ilnome,true);
+            xhttp.open("GET", "/api/corsi/ListaCorsi?nome="+ilnome,true);
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(null);
         };

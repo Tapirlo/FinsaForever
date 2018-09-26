@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Corso>
+
+<span id="id">IDCorso:</span><br />
+
+
+<select name="IDCorso">
+
+    @foreach (Corso c in Model)
+    {
+        <option value="@c.IDCorso">@c.IDCorso</option>
+
+    }
+
+
+</select>
+
+<br />
+<span>Nome Corso:</span><br />
+<input type="text" name="Nome" /> <br />
+
+<span>Data inizio:</span><br />
+<input type="date" name="DataInizio" /><br />
+<span>Data fine:</span><br />
+<input type="date" name="DataFine" /><br />
+<button id="bottone">Invia</button>
+
+<div id="output"></div>
+
+@section scripts{
+
+    <script>
+
+        function modificaCorso() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var ildiv = document.getElementById("output");
+                    var corso = JSON.parse(this.responseText);
+
+                    ildiv.innerHTML = "<p>Corso editato</p>";
+                    
+                    ildiv.innerHTML += getHtmlCorso(corso);
+
+                    }
+                }
+            
+            xhttp.open("PUT", "/api/corsi/UpdateCorso", true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send(getURLParameters());
+        };
+        function getHtmlCorso(corso) {
+
+            var testoHTML = [];
+            testoHTML[testoHTML.length] = "<div class='divprincipale'> <span class='spantitle'>";
+            testoHTML[testoHTML.length] = corso.nome;
+            testoHTML[testoHTML.length] = "</span><br /> <span class='spansubtitle'> Data:</span><br /> <span class='spanproperty'> Da";
+            testoHTML[testoHTML.length] = corso.dataInizio;
+            testoHTML[testoHTML.length] = "</span><br /> <span class='spanproperty'> A: ";
+            testoHTML[testoHTML.length] = corso.dataFine;
+            testoHTML[testoHTML.length] = "</span><br /><br /> <span class='spansubtitle'>Materie:</span><br /> <div class='divcontainer'>";
+            var lematerie = corso.argomenti;
+
+            for (let i = 0; i < lematerie.length; i++) {
+
+                testoHTML[testoHTML.length] = "<span class='spanproperty'>";
+
+                testoHTML[testoHTML.length] = lematerie[i];
+                testoHTML[testoHTML.length] = "</span > <br />";
+            }
+            return testoHTML.join(" ");
+        };
+        function getURLParameters()
+        {
+            var parametri = [];
+
+            var select = document.getElementsByName("IDCorso")[0];
+            parametri.push("IDCorso="+select.options[select.selectedIndex].value);
+
+            var nome = document.getElementsByName("Nome")[0];
+            parametri.push("&Nome="+nome.value);
+
+            var datainizio = document.getElementsByName("DataInizio")[0];
+            parametri.push("&DataInizio="+datainizio.value);
+
+            var datafine = document.getElementsByName("DataFine")[0];
+            parametri.push("&DataFine=" + datafine.value);
+            return parametri.join("");
+
+        };
+
+        function setta()
+        {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var corso = JSON.parse(this.responseText);
+
+                    settaCampi(corso);
+
+                }
+            }
+            var idcorso = this.options[this.selectedIndex].value;
+
+            xhttp.open("GET", "/api/corsi/CorsoPerID?idcorso=" + idcorso, true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send(null);
+        };
+
+        function settaCampi(corso)
+        {
+
+            var nome = document.getElementsByName("Nome")[0];
+            nome.value = corso.nome;
+
+            var datainizio = document.getElementsByName("DataInizio")[0];
+            datainizio.value = corso.dataInizio.substring(0, 10);
+
+            var datafine = document.getElementsByName("DataFine")[0];
+            datafine.value = corso.dataFine.substring(0, 10);
+
+        }
+
+        var bottone = document.getElementById("bottone");
+        bottone.addEventListener("click", modificaCorso);
+
+        var select = document.getElementsByName("IDCorso")[0];
+        select.addEventListener("change", setta);
+
+    </script>
+
+    }

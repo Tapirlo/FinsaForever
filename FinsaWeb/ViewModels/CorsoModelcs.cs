@@ -26,13 +26,22 @@ namespace CorsiOnline.ViewModels
             DataFine = c.DataFine;
             DataInizio = c.DataInizio;
             var args = c.MaterieCorsi;
-            Argomenti = new String[args.Count];
-            int i = 0;
-            foreach(MateriaCorso mc in args)
+        
+            if(args!=null)
             {
-                Argomenti[i] = mc.Materia;
-                i++;
+                Argomenti = new String[args.Count];
+                int i = 0;
+                foreach (MateriaCorso mc in args)
+                {
+                    Argomenti[i] = mc.Materia;
+                    i++;
+                }
             }
+            else
+            {
+                Argomenti = new String[0];
+            }
+       
         }
     }
 }
