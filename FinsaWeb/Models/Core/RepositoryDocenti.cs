@@ -37,6 +37,7 @@ namespace CorsiOnline.Models.Core
         {
             return contesto.Docenti.Include(x => x.Insegnamenti).ToList();
         }
+
         public bool AggiungiDocente(Docente docente, IEnumerable<Insegnamento> insegnamenti)
         {
             contesto.Docenti.Add(docente);
@@ -46,6 +47,26 @@ namespace CorsiOnline.Models.Core
             }
             contesto.SaveChanges();
             return true;
+        }
+
+        public bool UpdateDocente(Docente d)
+        {
+            try
+            {
+                Docente old = contesto.Docenti.Where(x => x.CodiceFiscale == d.CodiceFiscale).First();
+                old.Nome = d.Nome;
+                old.Cognome = d.Cognome;
+                old.Email = d.Email;
+                old.CodiceFiscale = d.CodiceFiscale;
+                old.Telefono = d.Telefono;
+                old.DataNascita = d.DataNascita;
+                contesto.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
