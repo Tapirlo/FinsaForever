@@ -31,6 +31,27 @@ namespace CorsiOnline.Models.Core
             }
         }
 
+        public bool RegistraAulaPerCorso(string a, string c, DateTime d)
+        {
+           // try
+            {
+            
+                context.PrenotazioniAule.Add(new PrenotazioneAula
+                {
+                    Corso = c,
+                    Aula = a,
+                    Data = d,
+                    
+                });
+                context.SaveChanges();
+                return true;
+               
+            }
+            /*catch (Exception)
+            {
+                return false;
+            }*/
+        }
         public IEnumerable<Aula> GetAllAula()
         {
             return context.Aule.ToList();

@@ -10,5 +10,6 @@ namespace CorsiOnline.Models
     {
         IEnumerable<Aula> GetAllAula();
         bool AggiungiAula(Aula aula);
+        bool RegistraAulaPerCorso(string a, string c, DateTime d);
     }
 }

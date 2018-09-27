@@ -1,0 +1,101 @@
+﻿@model AuleCorsiModel
+
+<span id="id">Corso:</span><br />
+
+
+<select name="Corso">
+
+    @foreach (Corso c in Model.Corsi)
+    {
+        <option value="@c.IDCorso">@c.Nome</option>
+
+    }
+
+
+</select>
+
+<br />
+
+<span id="id">Aula:</span><br />
+
+
+<select name="Aula">
+
+    @foreach (Aula c in Model.Aule)
+    {
+        <option value="@c.NomeAula">@c.NomeAula</option>
+
+    }
+
+
+</select>
+<br />
+<span id="data">Data:</span><br />
+<input type="date" name="Data" />
+
+<button id="bottone">Invia</button>
+
+<div id="output"></div>
+
+@section scripts{
+
+    <script>
+
+        function registraAula() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+
+                    var ildiv = document.getElementById("output");
+                    var corso = JSON.parse(this.responseText);
+
+                    ildiv.innerHTML = "<p>Aula Registrata</p>";
+
+                    ildiv.innerHTML += getHtmlRegistrazione(corso);
+
+                }
+            };
+
+            xhttp.open("POST", "/api/aule/RegistraAula", true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send(getURLParameters());
+        };
+        function getHtmlRegistrazione(registrazione) {
+
+            var testoHTML = [];
+            testoHTML[testoHTML.length] = "<div class='divprincipale'> <span class='spantitle'>";
+            testoHTML[testoHTML.length] = registrazione.aula;
+            testoHTML[testoHTML.length] = "<div class='divprincipale'> <span class='spantitle'>";
+            testoHTML[testoHTML.length] = registrazione.corso;
+            testoHTML[testoHTML.length] = "<div class='divprincipale'> <span class='spantitle'>";
+            testoHTML[testoHTML.length] = registrazione.data;
+          
+            
+            return testoHTML.join(" ");
+        };
+        function getURLParameters() {
+            var parametri = [];
+
+            var select = document.getElementsByName("Corso")[0];
+            parametri.push("Corso=" + select.options[select.selectedIndex].value);
+
+            select = document.getElementsByName("Aula")[0];
+            parametri.push("&Aula=" + select.options[select.selectedIndex].value);
+
+            var datainizio = document.getElementsByName("Data")[0];
+            parametri.push("&Data=" + datainizio.value);
+
+          
+            return parametri.join("");
+
+        };
+        var bottone = document.getElementById("bottone");
+        bottone.addEventListener("click", registraAula);
+
+
+    </script>
+
+        
+
+        
+    }

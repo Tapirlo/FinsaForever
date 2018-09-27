@@ -35,17 +35,17 @@
         function modificaCorso() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
+                if (this.readyState === 4 && this.status === 200) {
 
                     var ildiv = document.getElementById("output");
                     var corso = JSON.parse(this.responseText);
 
                     ildiv.innerHTML = "<p>Corso editato</p>";
-                    
+
                     ildiv.innerHTML += getHtmlCorso(corso);
 
-                    }
                 }
+            };
             
             xhttp.open("PUT", "/api/corsi/UpdateCorso", true);
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -95,7 +95,7 @@
         {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
+                if (this.readyState === 4 && this.status === 200) {
 
                     var corso = JSON.parse(this.responseText);
 

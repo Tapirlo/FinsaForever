@@ -6,15 +6,18 @@ using CorsiOnline.Models;
 using CorsiOnline.Models.Database;
 using CorsiOnline.Models.Core;
 using Microsoft.AspNetCore.Mvc;
+using CorsiOnline.ViewModels;
 
 namespace CorsiOnline.Controllers
 {
     public class AulaController : Controller
     {
         private IAulaRepository aulaRepository;
-        public AulaController(IAulaRepository repo)
+        private IRepositoryCorsi corsiRepository;
+        public AulaController(IAulaRepository repo,IRepositoryCorsi repo1)
         {
-            aulaRepository = repo; 
+            aulaRepository = repo;
+            corsiRepository = repo1;
 
         }
         public IActionResult AggiungiAula()
@@ -47,6 +50,12 @@ namespace CorsiOnline.Controllers
         {
             return View();
         }
+        public IActionResult RegistraAula()
+        {
+
+            return View(new AuleCorsiModel(aulaRepository.GetAllAula(),corsiRepository.GetAllCorsi()));
+        }
+
 
 
     }
