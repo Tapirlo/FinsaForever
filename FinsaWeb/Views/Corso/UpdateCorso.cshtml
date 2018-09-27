@@ -13,15 +13,17 @@
 
 
 </select>
-
+@{ 
+    Corso corso = Model.First();
+}
 <br />
 <span>Nome Corso:</span><br />
-<input type="text" name="Nome" /> <br />
+<input type="text" name="Nome" value="@corso.Nome"/> <br />
 
 <span>Data inizio:</span><br />
-<input type="date" name="DataInizio" /><br />
+<input type="date" name="DataInizio" value="@corso.DataInizio.ToString("yyyy-MM-dd")" /><br />
 <span>Data fine:</span><br />
-<input type="date" name="DataFine" /><br />
+<input type="date" name="DataFine"  value="@corso.DataFine.ToString("yyyy-MM-dd")" /><br />
 <button id="bottone">Invia</button>
 
 <div id="output"></div>
