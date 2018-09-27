@@ -14,6 +14,10 @@ namespace CorsiOnline.ViewModels
         public DateTime DataFine { get; set; }
         public String [] Argomenti { get; set; }
 
+        public override string ToString()
+        {
+            return IDCorso+" "+Nome;
+        }
         public CorsoModels()
         {
 

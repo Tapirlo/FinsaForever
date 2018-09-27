@@ -53,3 +53,13 @@ C:\Users\Allievo 10\Source\Repos\FinsaForever\FinsaWeb\bin\Debug\netcoreapp2.0\F
 C:\Users\Allievo 10\Source\Repos\FinsaForever\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.dll
 C:\Users\Allievo 10\Source\Repos\FinsaForever\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.pdb
 C:\Users\Allievo 10\Source\Repos\FinsaForever\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.csprojAssemblyReference.cache
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\bin\Debug\netcoreapp2.0\FinsaWeb.deps.json
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\bin\Debug\netcoreapp2.0\FinsaWeb.runtimeconfig.json
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\bin\Debug\netcoreapp2.0\FinsaWeb.runtimeconfig.dev.json
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\bin\Debug\netcoreapp2.0\FinsaWeb.dll
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\bin\Debug\netcoreapp2.0\FinsaWeb.pdb
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.csproj.CoreCompileInputs.cache
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.AssemblyInfoInputs.cache
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.AssemblyInfo.cs
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.dll
+C:\Users\Allievo 7\Desktop\Luca\Ultima Versione Finsa Web GITHUB\FinsaWeb\obj\Debug\netcoreapp2.0\FinsaWeb.pdb

@@ -8,7 +8,7 @@ using CorsiOnline.Models;
 using CorsiOnline.ViewModels;
 using CorsiOnline.Models.Database;
 
-namespace FinsaWeb.Controllers
+namespace CorsiOnline.Controllers
 {
     [Route("api/corsi")]
     public class CorsoApiController : Controller

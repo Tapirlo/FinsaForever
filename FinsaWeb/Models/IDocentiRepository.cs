@@ -15,5 +15,6 @@ namespace CorsiOnline.Models.Core
         IEnumerable<Docente> GetAllDocenti();
         bool AggiungiDocente(Docente docente, IEnumerable<Insegnamento> insegnamenti);
         bool UpdateDocente(Docente d);
-    }
+    }  
+
 }
