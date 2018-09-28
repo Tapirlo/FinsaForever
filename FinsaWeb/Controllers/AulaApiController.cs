@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CorsiOnline.Models;
+using CorsiOnline.Models.Database;
 using CorsiOnline.ViewModels;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CorsiOnline.Controllers
@@ -26,6 +28,32 @@ namespace CorsiOnline.Controllers
                 return Ok(model);
             }
             return BadRequest();
+        }
+        [HttpPatch("{nomeaula}/modificaAula")]
+        public IActionResult ModificaAula(string nomeaula,[FromBody] JsonPatchDocument<AulaModel> patchDoc)
+        {
+            if (patchDoc == null)
+            {
+                return BadRequest();
+            }
+            Aula aula = repository.GetAulaById(nomeaula);      
+            AulaModel model = new AulaModel(aula);
+            patchDoc.ApplyTo(model);
+            
+            if (repository.UpdateAula(model.GetAula()))
+            {
+                return Ok(model);
+            }
+            return BadRequest();
+            
+
+        }
+
+        [HttpGet("AulaPerID")]
+
+        public IActionResult AulaPerID(String idAula)
+        {
+            return Ok(repository.GetAulaById(idAula));
         }
     }
 }

@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Aula>
+
+
+<span id="id">NomeAula:</span><br />
+
+
+<select name="NomeAula">
+
+	@foreach (Aula a in Model)
+	{
+		<option value="@a.NomeAula">@a.NomeAula</option>
+
+	}
+
+
+</select>
+@{
+	Aula aula = Model.First();
+}
+<br />
+<span>Numero Computer:</span><br />
+<input type="text" name="NumeroComputer" value="@aula.NumeroComputer" /> <br />
+<span>Numero Posti:</span><br />
+<input type="text" name="NumeroPosti" value="@aula.NumeroPosti" /> <br />
+<span>Superficie:</span><br />
+<input type="text" name="Superficie" value="@aula.Superficie" /> <br />
+
+<button id="bottone">Invia</button>
+
+<div id="output"></div>
+
+@section scripts{
+
+	<script>
+
+		function modificaAula() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function () {
+				if (this.readyState === 4 && this.status === 200) {
+
+					var ildiv = document.getElementById("output");
+					
+					ildiv.innerHTML = "<p>Aula editata</p>";
+
+					//ildiv.innerHTML = this.responseText;
+
+				}
+			};
+			var select = document.getElementsByName("NomeAula")[0];
+			var nomeAula = select.options[select.selectedIndex].value;
+			xhttp.open("PATCH", "/api/aule/"+nomeAula+"/modificaAula", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			var stampa = getURLParameters();
+			
+			xhttp.send(stampa);
+		};
+		
+		function getURLParameters() {
+
+
+			var select = document.getElementsByName("NomeAula")[0];
+			var nomeAula = select.options[select.selectedIndex].value;
+
+			var numeroComputer = document.getElementsByName("NumeroComputer")[0].value;
+
+			var numeroPosti = document.getElementsByName("NumeroPosti")[0].value;
+
+			var superficie = document.getElementsByName("Superficie")[0].value;
+
+			return JSON.stringify(
+				[
+					{ op: "replace", path: "NomeAula", value: nomeAula },
+					{ op: "replace", path: "NumeroComputer", value: numeroComputer },
+					{ op: "replace", path: "NumeroPosti", value: numeroPosti },
+					{ op: "replace", path: "Superficie", value: superficie }
+				]
+			);
+
+		}
+		function setta() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function () {
+				if (this.readyState === 4 && this.status === 200) {
+
+					var aula = JSON.parse(this.responseText);
+
+					settaCampi(aula);
+
+				}
+			};
+			var idaula = this.options[this.selectedIndex].value;
+
+			xhttp.open("GET", "/api/aule/AulaPerID?idAula=" + idaula, true);
+			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhttp.send(null);
+		};
+
+		function settaCampi(aula) {
+
+			var nome = document.getElementsByName("NomeAula")[0];
+			nome.value = aula.nomeAula;
+
+			var numeroComputer = document.getElementsByName("NumeroComputer")[0];
+			numeroComputer.value = aula.numeroComputer;
+
+			var numeroPosti = document.getElementsByName("NumeroPosti")[0];
+			numeroPosti.value = aula.numeroPosti;
+
+			var superficie = document.getElementsByName("Superficie")[0];
+			superficie.value = aula.superficie;
+
+		}
+
+		var bottone = document.getElementById("bottone");
+		bottone.addEventListener("click", modificaAula);
+
+		var select = document.getElementsByName("NomeAula")[0];
+		select.addEventListener("change", setta);
+
+	</script>
+
+}

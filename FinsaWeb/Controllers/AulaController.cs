@@ -56,7 +56,10 @@ namespace CorsiOnline.Controllers
             return View(new AuleCorsiModel(aulaRepository.GetAllAula(),corsiRepository.GetAllCorsi()));
         }
 
-
+        public IActionResult UpdateAula()
+        {
+            return View(aulaRepository.GetAllAula());
+        }
 
     }
 }

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinsaWeb", "FinsaWeb\FinsaWeb.csproj", "{160C0825-6495-4B00-B67F-32CAAB329050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinsaWeb", "FinsaWeb\FinsaWeb.csproj", "{160C0825-6495-4B00-B67F-32CAAB329050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{E1112CD3-60CB-42F4-8BC1-F7E7F40744F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{E1112CD3-60CB-42F4-8BC1-F7E7F40744F1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{160C0825-6495-4B00-B67F-32CAAB329050} = {160C0825-6495-4B00-B67F-32CAAB329050}
 	EndProjectSection

@@ -27,5 +27,18 @@ namespace CorsiOnline.Models.Database
         [InverseProperty("AulaNavigation")]
         public ICollection<PrenotazioneAula> PrenotazioniAule { get; set; }
 
+        public Aula()
+        {
+
+        }
+
+        public Aula(String n,int nc,int np, int s)
+        {
+            NomeAula = n;
+            NumeroComputer = nc;
+            NumeroPosti = np;
+            Superficie = s;
+        }
+
     }
 }

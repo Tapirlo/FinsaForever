@@ -56,5 +56,29 @@ namespace CorsiOnline.Models.Core
         {
             return context.Aule.ToList();
         }
+
+        public bool UpdateAula(Aula a)
+        {
+            try
+            {
+                Aula vecchia = context.Aule.Where(x => x.NomeAula == a.NomeAula).First();
+
+                vecchia.NomeAula = a.NomeAula;
+                vecchia.NumeroComputer = a.NumeroComputer;
+                vecchia.NumeroPosti = a.NumeroPosti;
+                vecchia.Superficie = a.Superficie;
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public Aula GetAulaById(string id)
+        {
+            return context.Aule.Where(x => x.NomeAula == id).First();
+        }
     }
 }
