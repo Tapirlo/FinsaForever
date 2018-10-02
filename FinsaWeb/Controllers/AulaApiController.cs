@@ -49,6 +49,13 @@ namespace CorsiOnline.Controllers
 
         }
 
+        [HttpGet("AllAule")]
+
+        public IActionResult AllAule()
+        {
+            return Ok(repository.GetAllAula());
+        }
+
         [HttpGet("AulaPerID")]
 
         public IActionResult AulaPerID(String idAula)
