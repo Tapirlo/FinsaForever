@@ -19,7 +19,14 @@ namespace CorsiOnline.Controllers
         {
             repository = repo;
         }
+        [HttpGet("AllCorsi")]
+        public IActionResult AllCorsi()
+        {
 
+
+            return Ok(repository.GetAllCorsi().Select(x => new CorsoModels(x)));
+
+        }
         [HttpGet("ListaCorsi")]
   
         public IActionResult ListaCorsi(String nome)

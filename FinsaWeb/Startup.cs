@@ -36,6 +36,7 @@ namespace FinsaWeb
             services.AddTransient<IAulaRepository, AulaRepository>();
 
             services.AddMvc();
+            services.AddCors();
 
         }
 
@@ -45,6 +46,8 @@ namespace FinsaWeb
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseCors(builder =>
+            builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
