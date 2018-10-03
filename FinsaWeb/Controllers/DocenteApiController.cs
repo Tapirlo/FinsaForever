@@ -48,6 +48,12 @@ namespace FinsaWeb.Controllers
             return Ok(repository.GetAllDocenti().Select(x => new DocenteModels(x)));
         }     
 
+        [HttpGet("DocentePerID")]
+        public IActionResult DocentePerID(String iddocente)
+        {
+            return Ok(new DocenteModels(repository.FindByCF(iddocente)));
+        }
+
 
     }
 }
