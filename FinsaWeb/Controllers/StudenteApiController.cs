@@ -28,6 +28,12 @@ namespace CorsiOnline.Controllers
 
         }
 
-        
+        [HttpGet("StudentePerCF")]
+        public IActionResult StudentePerCF(String cf)
+        {
+            return Ok(repository.FindByCF(cf));
+        }
+
+
     }
 }

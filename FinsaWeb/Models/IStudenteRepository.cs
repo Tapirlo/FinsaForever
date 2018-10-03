@@ -9,6 +9,7 @@ namespace CorsiOnline.Models
     public interface IStudenteRepository
     {
         IEnumerable<Studente> FindByName(string name);
+        Studente FindByCF(string cf);
         bool IscriviStudente(Studente studente,String nomecorso);
         IEnumerable<Studente> GetAllStudenti();
     }

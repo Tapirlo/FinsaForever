@@ -55,7 +55,7 @@ namespace CorsiOnline.Controllers
 
         public IActionResult CorsoPerID(String idcorso)
         {
-            return Ok(repository.GetCorsoByID(idcorso));
+            return Ok(new CorsoModels(repository.GetCorsoByID(idcorso)));
         }
 
     }

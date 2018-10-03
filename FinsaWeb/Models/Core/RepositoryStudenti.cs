@@ -47,5 +47,10 @@ namespace CorsiOnline.Models.Core
         {
             return contesto.Studenti.ToList();
         }
+
+        public Studente FindByCF(string cf)
+        {
+            return contesto.Studenti.Where(x => x.CodiceFiscale == cf).First();
+        }
     }
 }
