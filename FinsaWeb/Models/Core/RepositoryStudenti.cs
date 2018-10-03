@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CorsiOnline.Models;
 using CorsiOnline.Models.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace CorsiOnline.Models.Core
 {
@@ -51,6 +52,14 @@ namespace CorsiOnline.Models.Core
         public Studente FindByCF(string cf)
         {
             return contesto.Studenti.Where(x => x.CodiceFiscale == cf).First();
+        }
+
+
+        public IEnumerable<Studente> StudentiIscrittiACorso(String idcorso)
+        {
+            return contesto.Studenti.Include(x => x.StudentiCorsi).
+               Join(contesto.StudentiCorsi, x => x.CodiceFiscale, x => x.Studente, (x1, x2) => new { Studente = x1, StudenteCorso = x2 })
+               .Where(x => x.StudenteCorso.Corso == idcorso).Select(x => x.Studente).ToList();
         }
     }
 }

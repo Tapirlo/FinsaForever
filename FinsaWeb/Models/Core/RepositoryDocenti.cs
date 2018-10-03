@@ -16,6 +16,7 @@ namespace CorsiOnline.Models.Core
         public RepositoryDocenti(ContestoCorso ctx)
         {
             contesto = ctx;
+            contesto = ctx;
         }
 
         public Docente FindByCF(string cf)
