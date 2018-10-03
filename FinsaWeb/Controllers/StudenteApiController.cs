@@ -35,5 +35,11 @@ namespace CorsiOnline.Controllers
         }
 
 
+        [HttpGet("StudentiIscritti")]
+        public IActionResult StudentiIscritti(String idcorso)
+        {
+            return Ok(repository.StudentiIscrittiACorso(idcorso));
+        }
+
     }
 }
