@@ -58,7 +58,7 @@ namespace CorsiOnline.Models.Core
 
         public Corso GetCorsoByID(String idcorso)
         {
-            return contesto.Corsi.Where(x => x.IDCorso == idcorso).First();
+            return contesto.Corsi.Where(x => x.IDCorso == idcorso).Include(x=>x.MaterieCorsi).First();
         }
     }
 }
