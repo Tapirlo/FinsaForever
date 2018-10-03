@@ -16,9 +16,13 @@ namespace CorsiOnline.ViewModels
         public string Telefono { get; set; }
         public DateTime DataNascita { get; set; }
 
+        public DocenteModel()
+        {
+            UnDocente = new Docente();
+        }
         public DocenteModel(Docente d)
         {
-            //UnDocente = new Docente();
+            UnDocente = new Docente();
             Nome = d.Nome;
             Cognome = d.Cognome;
             Email = d.Email;
