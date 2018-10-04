@@ -12,6 +12,7 @@ namespace CorsiOnline.Models
         Studente FindByCF(string cf);
         bool IscriviStudente(Studente studente,String nomecorso);
         IEnumerable<Studente> GetAllStudenti();
-        IEnumerable<Studente> StudentiIscrittiACorso(String idcorso);
+        Dictionary<Studente, int?> StudentiIscrittiACorso(String idcorso);
+        bool AggiungiStudente(Studente s);
     }
 }

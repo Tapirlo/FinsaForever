@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CorsiOnline.Models;
 using CorsiOnline.Models.Database;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Extensions.Internal;
 
 namespace CorsiOnline.Models.Core
 {
@@ -54,12 +55,24 @@ namespace CorsiOnline.Models.Core
             return contesto.Studenti.Where(x => x.CodiceFiscale == cf).First();
         }
 
-
-        public IEnumerable<Studente> StudentiIscrittiACorso(String idcorso)
+        public Dictionary<Studente, int?> StudentiIscrittiACorso(String idcorso)
         {
-            return contesto.Studenti.Include(x => x.StudentiCorsi).
+            var dictionary = new Dictionary<Studente, int?>();
+            var collection =  contesto.Studenti.Include(x => x.StudentiCorsi).
                Join(contesto.StudentiCorsi, x => x.CodiceFiscale, x => x.Studente, (x1, x2) => new { Studente = x1, StudenteCorso = x2 })
-               .Where(x => x.StudenteCorso.Corso == idcorso).Select(x => x.Studente).ToList();
+               .Where(x => x.StudenteCorso.Corso == idcorso).ToList();
+            foreach (var item in collection)
+            {
+                dictionary.Add(item.Studente, item.StudenteCorso.Punteggio);
+            }
+            return dictionary;
+        }
+
+        public bool AggiungiStudente(Studente s)
+        {
+            contesto.Studenti.Add(s);
+            contesto.SaveChanges();
+            return true;
         }
     }
 }
