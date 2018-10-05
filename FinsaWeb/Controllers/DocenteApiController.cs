@@ -54,6 +54,14 @@ namespace FinsaWeb.Controllers
             return Ok(new DocenteModels(repository.FindByCF(iddocente)));
         }
 
-
+        [HttpPost("AggiungiDocente")]
+        public IActionResult AggiungiDocente([FromBody]DocenteModels docente)
+        {
+            if(repository.AggiungiDocente(docente.AsDocente(), docente.GetInsegnamenti()))
+            {
+                return Ok(docente);
+            }
+            return BadRequest();
+        }
     }
 }
