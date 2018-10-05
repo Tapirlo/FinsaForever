@@ -22,7 +22,28 @@ namespace CorsiOnline.ViewModels
         {
 
         }
+        public Corso AsCorso()
+        {
+            Corso c = new Corso
+            {
+                IDCorso = this.IDCorso,
+                Nome = this.Nome,
+                DataFine = this.DataFine,
+                DataInizio = this.DataInizio,
+                MaterieCorsi = new List<MateriaCorso>()
+            };
+            for (int i = 0; i < Argomenti.Length; i++)
+            {
+                c.MaterieCorsi.Add(new MateriaCorso
+                {
+                    Corso = this.IDCorso,
+                    Materia = Argomenti[i]
+                });
+            }
+            return c;
 
+          
+        }
         public CorsoModels(Corso c)
         {
             IDCorso = c.IDCorso;
