@@ -21,7 +21,7 @@ namespace CorsiOnline.Models.Core
 
         public Docente FindByCF(string cf)
         {
-            return contesto.Docenti.Where(d => d.CodiceFiscale.Contains(cf)).Include(x => x.Insegnamenti).First() ;
+            return contesto.Docenti.Where(d => d.CodiceFiscale.Equals(cf)).Include(x=> x.Insegnamenti).First();
         }
 
         public IEnumerable<Docente> FindByName(string name)
