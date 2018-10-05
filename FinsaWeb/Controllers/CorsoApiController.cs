@@ -58,5 +58,16 @@ namespace CorsiOnline.Controllers
             return Ok(new CorsoModels(repository.GetCorsoByID(idcorso)));
         }
 
+
+        [HttpPost("InserisciCorso")]
+        public IActionResult InserisciCorso([FromBody]CorsoModels corso)
+        {
+            if(repository.AggiungiCorso(corso.AsCorso()))
+            {
+                return Ok(corso);
+            }
+            return BadRequest();
+        }
+
     }
 }
