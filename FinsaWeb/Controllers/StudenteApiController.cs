@@ -47,10 +47,26 @@ namespace CorsiOnline.Controllers
             return Ok(lista);
         }
 
-        [HttpPost("StudenteForm")]
-        public IActionResult AggiungiStudente(Studente s)
+        [HttpPost("AggiungiStudente")]
+        public IActionResult AggiungiStudente([FromBody]StudenteModels s)
         {
-            return Ok();
+            if (s.Corso != null)
+            {
+                if (repository.IscriviStudente(s.AsStudente(), s.Corso))
+                {
+                    return Ok(s);
+                }
+                return BadRequest();
+            }
+            else
+            {
+                if (repository.AggiungiStudente(s.AsStudente()))
+                {
+                    return Ok(s);
+                }
+                return BadRequest();
+            }
+           
         }
 
     }

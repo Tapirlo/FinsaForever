@@ -14,6 +14,8 @@ namespace CorsiOnline.ViewModels
         public DateTime DataNascita { get; set; }
         public String Sesso { get; set; }
         public int? Punteggio { get; set; }
+        public string Email { get; set; }
+        public string Corso { get; set; }
 
         public override string ToString()
         {
@@ -31,7 +33,7 @@ namespace CorsiOnline.ViewModels
             Cognome = s.Cognome;
             DataNascita = s.DataNascita;
             Sesso = s.Sesso;
-                      
+            Email = s.Email;             
 
         }
 
@@ -39,6 +41,26 @@ namespace CorsiOnline.ViewModels
         {
             Punteggio = punti;
 
+        }
+        public StudenteModels(Studente s, string corso) : this(s)
+        {
+            Corso = corso;
+
+        }
+        public Studente AsStudente()
+        {
+            Studente s = new Studente
+            {
+                CodiceFiscale = this.CodiceFiscale,
+                Nome = this.Nome,
+                Cognome = this.Cognome,
+                DataNascita = this.DataNascita,
+                Sesso = this.Sesso,
+                Email = this.Email
+            };
+            return s;
+
+            
         }
     }
 }
