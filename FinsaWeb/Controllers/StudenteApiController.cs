@@ -38,7 +38,35 @@ namespace CorsiOnline.Controllers
         [HttpGet("StudentiIscritti")]
         public IActionResult StudentiIscritti(String idcorso)
         {
-            return Ok(repository.StudentiIscrittiACorso(idcorso));
+            var dizionario = repository.StudentiIscrittiACorso(idcorso);
+            List<StudenteModels> lista = new List<StudenteModels>();
+            foreach(var studente in dizionario)
+            {
+                lista.Add(new StudenteModels(studente.Key,studente.Value));
+            }
+            return Ok(lista);
+        }
+
+        [HttpPost("AggiungiStudente")]
+        public IActionResult AggiungiStudente([FromBody]StudenteModels s)
+        {
+            if (s.Corso != null)
+            {
+                if (repository.IscriviStudente(s.AsStudente(), s.Corso))
+                {
+                    return Ok(s);
+                }
+                return BadRequest();
+            }
+            else
+            {
+                if (repository.AggiungiStudente(s.AsStudente()))
+                {
+                    return Ok(s);
+                }
+                return BadRequest();
+            }
+           
         }
 
     }
