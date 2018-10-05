@@ -62,5 +62,14 @@ namespace CorsiOnline.Controllers
         {
             return Ok(repository.GetAulaById(idAula));
         }
+        [HttpPost("InserisciAula")]
+        public IActionResult InserisciAula([FromBody] Aula aula)
+        {
+            if(repository.AggiungiAula(aula))
+            {
+                return Ok(new AulaModel(aula));
+            }
+            return BadRequest();
+        }
     }
 }
