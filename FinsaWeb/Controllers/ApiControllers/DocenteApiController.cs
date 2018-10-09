@@ -1,13 +1,14 @@
 ﻿using CorsiOnline.Models.Core;
 using CorsiOnline.Models.Database;
 using CorsiOnline.ViewModels;
+using CorsiOnline.ViewModels.DTOS;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FinsaWeb.Controllers
+namespace FinsaWeb.Controllers.ApiControllers
 {
     [Route("api/docenti")]
     public class DocenteApiController : Controller

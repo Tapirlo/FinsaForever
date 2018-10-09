@@ -9,6 +9,8 @@ using CorsiOnline.Controllers;
 using Xunit.Abstractions;
 using CorsiOnline.ViewModels;
 using System.Collections;
+using CorsiOnline.Controllers.ApiControllers;
+using CorsiOnline.ViewModels.DTOS;
 
 namespace XUnitTestProject1.ControllerTest
 {

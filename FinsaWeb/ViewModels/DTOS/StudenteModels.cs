@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CorsiOnline.Models.Database;
 
-namespace CorsiOnline.ViewModels
+namespace CorsiOnline.ViewModels.DTOS
 {
     public class StudenteModels
     {

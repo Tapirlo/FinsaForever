@@ -8,7 +8,7 @@ using CorsiOnline.ViewModels;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CorsiOnline.Controllers
+namespace CorsiOnline.Controllers.ApiControllers
 {
     [Route("api/aule")]
     public class AulaApiController : Controller

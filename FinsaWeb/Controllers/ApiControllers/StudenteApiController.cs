@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using CorsiOnline.Models;
 using CorsiOnline.ViewModels;
 using CorsiOnline.Models.Database;
+using CorsiOnline.ViewModels.DTOS;
 
-namespace CorsiOnline.Controllers
+namespace CorsiOnline.Controllers.ApiControllers
 {
     [Route("api/studenti")]
     public class StudenteApiController : Controller
