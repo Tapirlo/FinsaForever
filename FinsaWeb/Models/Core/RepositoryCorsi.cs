@@ -29,31 +29,20 @@ namespace CorsiOnline.Models.Core
             return contesto.Corsi.Include(x => x.StudentiCorsi).ThenInclude(x => x.StudenteNavigation).Include(x => x.DocentiCorsi).ThenInclude(x => x.DocenteNavigation).Include(x => x.MaterieCorsi).ToList();
         }
         public bool AggiungiCorso(Corso corso)
-        {
-            //if(contesto.Corsi.Contains(corso))
-            //{
-            //    return false;
-            //}
+        {            
             contesto.Corsi.Add(corso);
-            contesto.SaveChanges();
+            
             return true;
         }
 
         public bool UpdateCorso(Corso c)
         {
-            try
-            {
-                Corso vecchio = contesto.Corsi.Where(x => x.IDCorso == c.IDCorso).First();
-                vecchio.Nome = c.Nome;
-                vecchio.DataInizio = c.DataInizio;
-                vecchio.DataFine = c.DataFine;
-                contesto.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+
+            Corso vecchio = contesto.Corsi.Where(x => x.IDCorso == c.IDCorso).First();
+            vecchio.Nome = c.Nome;
+            vecchio.DataInizio = c.DataInizio;
+            vecchio.DataFine = c.DataFine;
+            return true;
         }
 
         public Corso GetCorsoByID(String idcorso)

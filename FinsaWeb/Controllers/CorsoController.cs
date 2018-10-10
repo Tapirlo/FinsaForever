@@ -6,14 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using CorsiOnline.Models;
 using CorsiOnline.Models.Database;
 using CorsiOnline.ViewModels;
+using CorsiOnline.Models.Core.UnitOfWorks;
+
 
 namespace CorsiOnline.Controllers
 {
     public class CorsoController : Controller
     {
-        private IRepositoryCorsi repository;
+        private IUnitOfWorkCorsi repository;
 
-        public CorsoController(IRepositoryCorsi repo)
+        public CorsoController(IUnitOfWorkCorsi repo)
         {
             repository = repo;
         }
@@ -49,13 +51,13 @@ namespace CorsiOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                if (repository.AggiungiCorso(corso))
+                try
                 {
+                    repository.AggiungiCorso(corso);
                     return RedirectToAction("Completo");
 
                 }
-                else
+                catch(Exception)
                 {
                     return RedirectToAction("Incompleto");
 

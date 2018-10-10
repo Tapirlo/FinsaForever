@@ -1,4 +1,5 @@
 ﻿using CorsiOnline.Models.Core;
+using CorsiOnline.Models.Core.UnitOfWorks;
 using CorsiOnline.Models.Database;
 using CorsiOnline.ViewModels;
 using CorsiOnline.ViewModels.DTOS;
@@ -8,14 +9,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FinsaWeb.Controllers.ApiControllers
+namespace CorsiOnline.Controllers.ApiControllers
 {
     [Route("api/docenti")]
     public class DocenteApiController : Controller
     {
-        private IDocentiRepository repository;
+        private IUnitOfWorkDocenti repository;
 
-        public DocenteApiController(IDocentiRepository repo)
+        public DocenteApiController(IUnitOfWorkDocenti repo)
         {
             repository = repo;
         }
@@ -24,6 +25,11 @@ namespace FinsaWeb.Controllers.ApiControllers
         public IActionResult ListaDocenti(String surname)
         {
             var docenti = repository.FindBySurname(surname);
+            if (docenti == null)
+            {
+                return BadRequest();
+            }
+
             List<DocenteModel> listaDocenti = new List<DocenteModel>();
             foreach (var d in docenti)
             {
@@ -36,33 +42,53 @@ namespace FinsaWeb.Controllers.ApiControllers
         [HttpPut("UpdateCorso")]
         public IActionResult UpdateDocente(Docente d)
         {
-            if (repository.UpdateDocente(d))
+            try
             {
+                repository.UpdateDocente(d);
                 return Ok(new DocenteModel(d));
             }
-            return BadRequest();
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+            
         }
 
         [HttpGet("GetAllDocenti")]
         public IActionResult GetAllDocenti()
         {
-            return Ok(repository.GetAllDocenti().Select(x => new DocenteModels(x)));
+            IEnumerable<Docente> docenti = repository.GetAllDocenti();
+            if (docenti == null)
+            {
+                return BadRequest();
+            }
+            return Ok(docenti.Select(x => new DocenteModels(x)));
         }
 
         [HttpGet("DocentePerID")]
         public IActionResult DocentePerID(string  iddocente)
         {
-            return Ok(new DocenteModels(repository.FindByCF(iddocente)));
+            Docente d = repository.FindByCF(iddocente);
+            if (d == null)
+            {
+                return BadRequest();
+            }
+            return Ok(new DocenteModels(d));
         }
 
         [HttpPost("AggiungiDocente")]
         public IActionResult AggiungiDocente([FromBody]DocenteModels docente)
         {
-            if(repository.AggiungiDocente(docente.AsDocente(), docente.GetInsegnamenti()))
+            try
             {
+                repository.AggiungiDocente(docente.AsDocente(), docente.GetInsegnamenti());
                 return Ok(docente);
             }
-            return BadRequest();
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+            
         }
     }
 }

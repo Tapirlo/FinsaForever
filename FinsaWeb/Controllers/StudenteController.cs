@@ -6,15 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using CorsiOnline.Models;
 using CorsiOnline.Models.Database;
 using CorsiOnline.ViewModels;
+using CorsiOnline.Models.Core.UnitOfWorks;
 
 namespace CorsiOnline.Controllers
 {
     public class StudenteController : Controller
     {
-        private IStudenteRepository repositoryStudenti;
-        private IRepositoryCorsi repositoryCorsi;
+        private IUnitOfWorkStudenti repositoryStudenti;
+        private IUnitOfWorkCorsi repositoryCorsi;
 
-        public StudenteController(IStudenteRepository s,IRepositoryCorsi c)
+        public StudenteController(IUnitOfWorkStudenti s, IUnitOfWorkCorsi c)
         {
             repositoryStudenti = s;
             repositoryCorsi = c;
@@ -30,16 +31,16 @@ namespace CorsiOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (repositoryStudenti.IscriviStudente(model.UnAlunno, model.UnCorso))
+                try
                 {
+                    repositoryStudenti.IscriviStudente(model.UnAlunno, model.UnCorso);
                     return RedirectToAction("Completo");
-
                 }
-                else
+                catch (Exception)
                 {
                     return RedirectToAction("Incompleto");
-
                 }
+                
             }
             IEnumerable<Corso> icorsi = repositoryCorsi.GetAllCorsi();
             model.Corsi = icorsi;

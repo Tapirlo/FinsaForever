@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using CorsiOnline.Models;
 using CorsiOnline.Models.Database;
 using CorsiOnline.Models.Core;
+using CorsiOnline.Models.Core.UnitOfWorks;
+using CorsiOnline.Models.UnitOfWorks;
 
 namespace FinsaWeb
 {
@@ -34,7 +36,8 @@ namespace FinsaWeb
             services.AddTransient<IDocentiRepository, RepositoryDocenti>();
             services.AddTransient<IStudenteRepository, RepositoryStudenti>();
             services.AddTransient<IAulaRepository, AulaRepository>();
-
+            services.AddTransient<IUnitOfWorkCorsi, EFUnitOfWorkCorsi>();
+            services.AddTransient<IUnitOfWorkStudenti, EFUnitOfWorkStudenti>();
             services.AddMvc();
             services.AddCors();
 

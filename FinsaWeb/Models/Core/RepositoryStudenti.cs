@@ -28,21 +28,14 @@ namespace CorsiOnline.Models.Core
         }
         public bool IscriviStudente(Studente studente, String nomecorso)
         {
-            try
+
+            contesto.Studenti.Add(studente);
+            contesto.StudentiCorsi.Add(new StudenteCorso
             {
-                contesto.Studenti.Add(studente);
-                contesto.StudentiCorsi.Add(new StudenteCorso
-                {
-                    Studente = studente.CodiceFiscale,
-                    Corso = nomecorso
-                });
-                contesto.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+                Studente = studente.CodiceFiscale,
+                Corso = nomecorso
+            });
+            return true;            
 
         }
         public IEnumerable<Studente> GetAllStudenti()
@@ -70,8 +63,7 @@ namespace CorsiOnline.Models.Core
 
         public bool AggiungiStudente(Studente s)
         {
-            contesto.Studenti.Add(s);
-            contesto.SaveChanges();
+            contesto.Studenti.Add(s);            
             return true;
         }
     }

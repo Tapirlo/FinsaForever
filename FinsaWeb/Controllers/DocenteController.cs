@@ -7,15 +7,16 @@ using CorsiOnline.Models.Core;
 using Microsoft.AspNetCore.Mvc;
 using CorsiOnline.ViewModels;
 using CorsiOnline.Models.Database;
+using CorsiOnline.Models.Core.UnitOfWorks;
 
 namespace CorsiOnline.Controllers
 {
     public class DocenteController : Controller
     {
-        private IDocentiRepository repository;
+        private IUnitOfWorkDocenti repository;
         
 
-        public DocenteController(IDocentiRepository repo)
+        public DocenteController(IUnitOfWorkDocenti repo)
         {
             repository = repo;
         }
@@ -32,12 +33,12 @@ namespace CorsiOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (repository.AggiungiDocente(docente.UnDocente, docente.RegistraMaterie()))
+                try
                 {
-
+                    repository.AggiungiDocente(docente.UnDocente, docente.RegistraMaterie());
                     return RedirectToAction("Completo");
                 }
-                else
+                catch (Exception)
                 {
                     return RedirectToAction("Incompleto");
                 }

@@ -42,32 +42,26 @@ namespace CorsiOnline.Models.Core
         public bool AggiungiDocente(Docente docente, IEnumerable<Insegnamento> insegnamenti)
         {
             contesto.Docenti.Add(docente);
-            foreach(Insegnamento inse in insegnamenti)
+            if (insegnamenti != null)
             {
-                contesto.Insegnamenti.Add(inse);
-            }
-            contesto.SaveChanges();
+                foreach (Insegnamento inse in insegnamenti)
+                {
+                    contesto.Insegnamenti.Add(inse);
+                }
+            }                       
             return true;
         }
 
         public bool UpdateDocente(Docente d)
         {
-            try
-            {
-                Docente old = contesto.Docenti.Where(x => x.CodiceFiscale == d.CodiceFiscale).First();
-                old.Nome = d.Nome;
-                old.Cognome = d.Cognome;
-                old.Email = d.Email;
-                old.CodiceFiscale = d.CodiceFiscale;
-                old.Telefono = d.Telefono;
-                old.DataNascita = d.DataNascita;
-                contesto.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            Docente old = contesto.Docenti.Where(x => x.CodiceFiscale == d.CodiceFiscale).First();
+            old.Nome = d.Nome;
+            old.Cognome = d.Cognome;
+            old.Email = d.Email;
+            old.CodiceFiscale = d.CodiceFiscale;
+            old.Telefono = d.Telefono;
+            old.DataNascita = d.DataNascita;            
+            return true;
         }
     }
 }
