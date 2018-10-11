@@ -14,5 +14,6 @@ namespace CorsiOnline.Models
         IEnumerable<Studente> GetAllStudenti();
         Dictionary<Studente, int?> StudentiIscrittiACorso(String idcorso);
         bool AggiungiStudente(Studente s);
+        void AssegnaPunteggio(String cfStudente, String idCorso, int punteggio);
     }
 }

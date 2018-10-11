@@ -24,6 +24,23 @@ namespace CorsiOnline.Models.UnitOfWorks
             Save();
         }
 
+        public void AssegnaPunteggio(string cfStudente, string idCorso, int punteggio)
+        {
+            try
+            {
+                repoStudenti.AssegnaPunteggio(cfStudente, idCorso, punteggio);
+            }
+            catch (ArgumentNullException e)
+            {
+                throw new DBEditException(e.Message);
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new DBEditException(e.Message);
+            }
+            Save();
+        }
+
         public Studente FindByCF(string cf)
         {
             try

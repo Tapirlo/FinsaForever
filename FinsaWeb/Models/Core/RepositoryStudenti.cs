@@ -66,5 +66,11 @@ namespace CorsiOnline.Models.Core
             contesto.Studenti.Add(s);            
             return true;
         }
+
+        public void AssegnaPunteggio(string cfStudente, string idCorso, int punteggio)
+        {
+            StudenteCorso studenteCorso = contesto.StudentiCorsi.Where(x => x.Studente == cfStudente && x.Corso == idCorso).First();
+            studenteCorso.Punteggio = punteggio; 
+        }
     }
 }

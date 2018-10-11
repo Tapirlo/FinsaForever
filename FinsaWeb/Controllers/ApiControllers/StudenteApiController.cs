@@ -87,5 +87,27 @@ namespace CorsiOnline.Controllers.ApiControllers
            
         }
 
+        [HttpPut("InserisciPunteggio")]
+        public IActionResult InserisciPunteggio([FromBody] StudenteModels[] studenti)
+        {
+            try
+            {
+                foreach (StudenteModels studente in studenti)
+                {
+                    if (studente.Punteggio != null)
+                    {
+                        repository.AssegnaPunteggio(studente.CodiceFiscale, studente.Corso, (int)studente.Punteggio);
+                    }                    
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+            return Ok(studenti);
+        }
+
+        
+
     }
 }
