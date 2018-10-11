@@ -13,12 +13,10 @@ namespace CorsiOnline.Models.UnitOfWorks
     public class EFUnitOfWorkCorsi : EFUnitOfWork, IUnitOfWorkCorsi
     {
         private IRepositoryCorsi repoCorsi;
-        private ContestoCorso ctx;
 
         public EFUnitOfWorkCorsi(IRepositoryCorsi corsi, ContestoCorso contesto) : base(contesto)
         {
             repoCorsi = corsi;
-            ctx = contesto;
         }
               
 

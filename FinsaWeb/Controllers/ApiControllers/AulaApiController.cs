@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CorsiOnline.Models;
+using CorsiOnline.Models.Core.UnitOfWorks;
 using CorsiOnline.Models.Database;
 using CorsiOnline.ViewModels;
 using Microsoft.AspNetCore.JsonPatch;
@@ -14,20 +15,24 @@ namespace CorsiOnline.Controllers.ApiControllers
     public class AulaApiController : Controller
     {
 
-        private IAulaRepository repository;
+        private IUnitOfWorkAule repository;
 
-        public AulaApiController(IAulaRepository repo)
+        public AulaApiController(IUnitOfWorkAule repo)
         {
             repository = repo;
         }
         [HttpPost("RegistraAula")]
         public IActionResult RegistraAula(RegistraAulaModel model )
         {
-            if (repository.RegistraAulaPerCorso(model.Aula, model.Corso, model.Data))
+            try
             {
+                repository.RegistraAulaPerCorso(model.Aula, model.Corso, model.Data);
                 return Ok(model);
             }
-            return BadRequest();
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
         [HttpPatch("{nomeaula}/modificaAula")]
         public IActionResult ModificaAula(string nomeaula,[FromBody] JsonPatchDocument<AulaModel> patchDoc)
@@ -36,16 +41,22 @@ namespace CorsiOnline.Controllers.ApiControllers
             {
                 return BadRequest();
             }
-            Aula aula = repository.GetAulaById(nomeaula);      
+            Aula aula = repository.GetAulaById(nomeaula);
+            if (aula == null)
+            {
+                return BadRequest();
+            }
             AulaModel model = new AulaModel(aula);
             patchDoc.ApplyTo(model);
-            
-            if (repository.UpdateAula(model.GetAula()))
+            try
             {
+                repository.UpdateAula(model.GetAula());
                 return Ok(model);
             }
-            return BadRequest();
-            
+            catch (Exception)
+            {
+                return BadRequest();
+            }            
 
         }
         
@@ -60,16 +71,25 @@ namespace CorsiOnline.Controllers.ApiControllers
 
         public IActionResult AulaPerID(String idAula)
         {
-            return Ok(repository.GetAulaById(idAula));
+            Aula aula = repository.GetAulaById(idAula);
+            if (aula == null)
+            {
+                return BadRequest();
+            }
+            return Ok(aula);
         }
         [HttpPost("InserisciAula")]
         public IActionResult InserisciAula([FromBody] Aula aula)
         {
-            if(repository.AggiungiAula(aula))
+            try
             {
+                repository.AggiungiAula(aula);
                 return Ok(new AulaModel(aula));
             }
-            return BadRequest();
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
     }
 }

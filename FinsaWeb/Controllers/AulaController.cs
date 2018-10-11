@@ -7,14 +7,15 @@ using CorsiOnline.Models.Database;
 using CorsiOnline.Models.Core;
 using Microsoft.AspNetCore.Mvc;
 using CorsiOnline.ViewModels;
+using CorsiOnline.Models.Core.UnitOfWorks;
 
 namespace CorsiOnline.Controllers
 {
     public class AulaController : Controller
     {
-        private IAulaRepository aulaRepository;
-        private IRepositoryCorsi corsiRepository;
-        public AulaController(IAulaRepository repo,IRepositoryCorsi repo1)
+        private IUnitOfWorkAule aulaRepository;
+        private IUnitOfWorkCorsi corsiRepository;
+        public AulaController(IUnitOfWorkAule repo, IUnitOfWorkCorsi repo1)
         {
             aulaRepository = repo;
             corsiRepository = repo1;
@@ -26,18 +27,20 @@ namespace CorsiOnline.Controllers
         }
         [HttpPost]
         public IActionResult AggiungiAula(Aula aula)
-        {
+        {            
+
            if (ModelState.IsValid)
             {
-                if(aulaRepository.AggiungiAula(aula))
+                try
                 {
-                   return RedirectToAction("Complete");
-                    
+                    aulaRepository.AggiungiAula(aula);
+                    return RedirectToAction("Complete");
                 }
-                else
+                catch (Exception)
                 {
                     return RedirectToAction("Failed");
                 }
+
             }
             return View(aula);
            
@@ -52,8 +55,13 @@ namespace CorsiOnline.Controllers
         }
         public IActionResult RegistraAula()
         {
-
-            return View(new AuleCorsiModel(aulaRepository.GetAllAula(),corsiRepository.GetAllCorsi()));
+            IEnumerable<Aula> aule = aulaRepository.GetAllAula();
+            IEnumerable<Corso> corsi = corsiRepository.GetAllCorsi();
+            if (aule == null || corsi == null)
+            {
+                return BadRequest();
+            }
+            return View(new AuleCorsiModel(aule, corsi));
         }
 
         public IActionResult UpdateAula()

@@ -8,17 +8,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FinsaWeb.Models.UnitOfWorks
+namespace CorsiOnline.Models.UnitOfWorks
 {
     public class EFUnitOfWorkDocenti : EFUnitOfWork, IUnitOfWorkDocenti
     {
         private IDocentiRepository repoDocenti;
-        private ContestoCorso ctx;
+        
 
         public EFUnitOfWorkDocenti(IDocentiRepository docenti, ContestoCorso contesto) : base(contesto)
         {
             repoDocenti = docenti;
-            ctx = contesto;
+            
         }
 
         public void AggiungiDocente(Docente docente, IEnumerable<Insegnamento> insegnamenti)

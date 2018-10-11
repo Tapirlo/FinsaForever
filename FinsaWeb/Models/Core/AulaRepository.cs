@@ -19,38 +19,20 @@ namespace CorsiOnline.Models.Core
 
         public bool AggiungiAula(Aula aula)
         {
-            try
-            {
-                context.Aule.Add(aula);
-                context.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            context.Aule.Add(aula);
+            return true;            
         }
 
         public bool RegistraAulaPerCorso(string a, string c, DateTime d)
         {
-           // try
+            context.PrenotazioniAule.Add(new PrenotazioneAula
             {
-            
-                context.PrenotazioniAule.Add(new PrenotazioneAula
-                {
-                    Corso = c,
-                    Aula = a,
-                    Data = d,
-                    
-                });
-                context.SaveChanges();
-                return true;
-               
-            }
-            /*catch (Exception)
-            {
-                return false;
-            }*/
+                Corso = c,
+                Aula = a,
+                Data = d,
+
+            });            
+            return true;
         }
         public IEnumerable<Aula> GetAllAula()
         {
@@ -59,21 +41,14 @@ namespace CorsiOnline.Models.Core
 
         public bool UpdateAula(Aula a)
         {
-            try
-            {
-                Aula vecchia = context.Aule.Where(x => x.NomeAula == a.NomeAula).First();
+           Aula vecchia = context.Aule.Where(x => x.NomeAula == a.NomeAula).First();
 
-                vecchia.NomeAula = a.NomeAula;
-                vecchia.NumeroComputer = a.NumeroComputer;
-                vecchia.NumeroPosti = a.NumeroPosti;
-                vecchia.Superficie = a.Superficie;
-                context.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+           vecchia.NomeAula = a.NomeAula;
+           vecchia.NumeroComputer = a.NumeroComputer;
+           vecchia.NumeroPosti = a.NumeroPosti;
+           vecchia.Superficie = a.Superficie;
+           return true;
+            
         }
 
         public Aula GetAulaById(string id)
