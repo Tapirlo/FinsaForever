@@ -94,10 +94,8 @@ namespace CorsiOnline.Controllers.ApiControllers
             {
                 foreach (StudenteModels studente in studenti)
                 {
-                    if (studente.Punteggio != null)
-                    {
-                        repository.AssegnaPunteggio(studente.CodiceFiscale, studente.Corso, (int)studente.Punteggio);
-                    }                    
+                    repository.AssegnaPunteggio(studente.CodiceFiscale, studente.Corso, studente.Punteggio);
+                                    
                 }
             }
             catch (Exception)

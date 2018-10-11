@@ -24,7 +24,7 @@ namespace CorsiOnline.Models.UnitOfWorks
             Save();
         }
 
-        public void AssegnaPunteggio(string cfStudente, string idCorso, int punteggio)
+        public void AssegnaPunteggio(string cfStudente, string idCorso, int? punteggio)
         {
             try
             {
