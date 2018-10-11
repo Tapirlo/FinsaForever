@@ -105,7 +105,21 @@ namespace CorsiOnline.Controllers.ApiControllers
             return Ok(studenti);
         }
 
-        
+        [HttpDelete("Cancella")]
+        public IActionResult Cancella([FromQuery] string cf)
+        {
+            try
+            {
+                repository.Cancella(cf);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+            return Ok("Cancellato");
+        }
+
+
 
     }
 }

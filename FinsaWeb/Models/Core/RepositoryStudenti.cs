@@ -72,5 +72,13 @@ namespace CorsiOnline.Models.Core
             StudenteCorso studenteCorso = contesto.StudentiCorsi.Where(x => x.Studente == cfStudente && x.Corso == idCorso).First();
             studenteCorso.Punteggio = punteggio; 
         }
+
+        public void Cancella(String cf)
+        {
+            Studente studente = contesto.Studenti.Where(x => x.CodiceFiscale == cf).First();
+            contesto.Studenti.Remove(studente);
+            StudenteCorso[] iscrizioni = contesto.StudentiCorsi.Where(x => x.Studente == cf).ToArray();
+            contesto.StudentiCorsi.RemoveRange(iscrizioni);
+        }
     }
 }

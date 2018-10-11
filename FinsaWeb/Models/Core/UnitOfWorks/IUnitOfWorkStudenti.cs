@@ -16,5 +16,6 @@ namespace CorsiOnline.Models.Core.UnitOfWorks
         Dictionary<Studente, int?> StudentiIscrittiACorso(String idcorso);
         void AggiungiStudente(Studente s);
         void AssegnaPunteggio(String cfStudente, String idCorso, int? punteggio);
+        void Cancella(String cf);
     }
 }

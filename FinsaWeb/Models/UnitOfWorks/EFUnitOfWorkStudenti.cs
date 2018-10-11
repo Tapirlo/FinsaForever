@@ -41,6 +41,23 @@ namespace CorsiOnline.Models.UnitOfWorks
             Save();
         }
 
+        public void Cancella(string cf)
+        {
+            try
+            {
+                repoStudenti.Cancella(cf);
+            }
+            catch (ArgumentNullException e)
+            {
+                throw new DBEditException(e.Message);
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new DBEditException(e.Message);
+            }
+            Save();
+        }
+
         public Studente FindByCF(string cf)
         {
             try
