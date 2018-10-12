@@ -29,13 +29,13 @@ namespace FinsaWeb
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ContestoCorso>(opts => opts.UseSqlServer(
+            services.AddDbContext<ContestoFinsa>(opts => opts.UseSqlServer(
                Configuration.GetConnectionString("DefaultConnection")));
             //services.AddSingleton<IRepositoryCorsi, RepositoryCorsiTest>();
-            services.AddTransient<IRepositoryCorsi, RepositoryCorsi>();
+            services.AddTransient<ICorsiRepository, RepositoryCorsi>();
             services.AddTransient<IDocentiRepository, RepositoryDocenti>();
             services.AddTransient<IStudenteRepository, RepositoryStudenti>();
-            services.AddTransient<IAulaRepository, AulaRepository>();
+            services.AddTransient<IAulaRepository, RepositoryAule>();
             services.AddTransient<IUnitOfWorkCorsi, EFUnitOfWorkCorsi>();
             services.AddTransient<IUnitOfWorkStudenti, EFUnitOfWorkStudenti>();
             services.AddTransient<IUnitOfWorkDocenti, EFUnitOfWorkDocenti>();

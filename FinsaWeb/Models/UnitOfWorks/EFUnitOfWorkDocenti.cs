@@ -15,7 +15,7 @@ namespace CorsiOnline.Models.UnitOfWorks
         private IDocentiRepository repoDocenti;
         
 
-        public EFUnitOfWorkDocenti(IDocentiRepository docenti, ContestoCorso contesto) : base(contesto)
+        public EFUnitOfWorkDocenti(IDocentiRepository docenti, ContestoFinsa contesto) : base(contesto)
         {
             repoDocenti = docenti;
             

@@ -10,8 +10,8 @@ namespace CorsiOnline.Controllers
 {
     public class HomeController : Controller
     {
-        private IRepositoryCorsi repository;
-        public HomeController(IRepositoryCorsi r)
+        private ICorsiRepository repository;
+        public HomeController(ICorsiRepository r)
         {
             repository = r;
         }

@@ -8,11 +8,11 @@ namespace XUnitTestProject1
 {
     public static class ContextFactory
     {
-        public static ContestoCorso CreateContext()
+        public static ContestoFinsa CreateContext()
         {
-            var builder = new DbContextOptionsBuilder<ContestoCorso>();
+            var builder = new DbContextOptionsBuilder<ContestoFinsa>();
             builder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=DatabaseCorsi;Trusted_Connection=True;MultipleActiveResultSets=true");
-            var ctx = new ContestoCorso(builder.Options);
+            var ctx = new ContestoFinsa(builder.Options);
             return ctx;
             
         }

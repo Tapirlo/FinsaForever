@@ -8,11 +8,11 @@ using CorsiOnline.Models;
 
 namespace CorsiOnline.Models.Core
 {
-    public class AulaRepository : IAulaRepository
+    public class RepositoryAule : IAulaRepository
     {
-        private ContestoCorso context;
+        private ContestoFinsa context;
 
-        public AulaRepository (ContestoCorso c)
+        public RepositoryAule (ContestoFinsa c)
         {
             context = c;
         }
@@ -55,5 +55,6 @@ namespace CorsiOnline.Models.Core
         {
             return context.Aule.Where(x => x.NomeAula == id).First();
         }
+        
     }
 }

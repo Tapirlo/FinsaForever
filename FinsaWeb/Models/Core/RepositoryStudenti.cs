@@ -15,9 +15,9 @@ namespace CorsiOnline.Models.Core
         {
             contesto.Dispose();
         }
-        private ContestoCorso contesto;
+        private ContestoFinsa contesto;
 
-        public RepositoryStudenti(ContestoCorso ctx)
+        public RepositoryStudenti(ContestoFinsa ctx)
         {
             contesto = ctx;
         }

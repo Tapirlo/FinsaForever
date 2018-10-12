@@ -12,6 +12,6 @@ namespace CorsiOnline.Models.Core.UnitOfWorks
         void AggiungiAula(Aula aula);
         void RegistraAulaPerCorso(string a, string c, DateTime d);
         void UpdateAula(Aula a);
-        Aula GetAulaById(string id);
+        Aula GetAulaById(string id);        
     }
 }

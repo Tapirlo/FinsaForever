@@ -10,7 +10,7 @@ using System;
 
 namespace FinsaWeb.Migrations
 {
-    [DbContext(typeof(ContestoCorso))]
+    [DbContext(typeof(ContestoFinsa))]
     [Migration("20180918081345_initial")]
     partial class initial
     {

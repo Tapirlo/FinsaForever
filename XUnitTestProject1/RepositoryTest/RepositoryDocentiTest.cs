@@ -14,16 +14,16 @@ namespace XUnitTestProject1.RepositoryTest
 {
     public class RepositoryDocentiTest
     {
-        private ContestoCorso ctx;
+        private ContestoFinsa ctx;
         private IDocentiRepository docentiRepository;
         private static int counter = 0;
 
         public RepositoryDocentiTest()
         {
-            var options = new DbContextOptionsBuilder<ContestoCorso>()
+            var options = new DbContextOptionsBuilder<ContestoFinsa>()
                     .UseInMemoryDatabase("InMemory" + counter++)
                     .Options;
-            ctx = new ContestoCorso(options);
+            ctx = new ContestoFinsa(options);
             docentiRepository = new RepositoryDocenti(ctx);
             ctx.Docenti.AddRange(CreaDocenti(10));
             ctx.SaveChanges();

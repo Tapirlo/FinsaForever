@@ -10,7 +10,7 @@ using System;
 
 namespace FinsaWeb.Migrations
 {
-    [DbContext(typeof(ContestoCorso))]
+    [DbContext(typeof(ContestoFinsa))]
     partial class ContestoCorsoModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

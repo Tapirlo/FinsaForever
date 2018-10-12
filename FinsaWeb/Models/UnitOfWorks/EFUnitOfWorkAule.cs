@@ -13,7 +13,7 @@ namespace CorsiOnline.Models.UnitOfWorks
     {
         private IAulaRepository repoAule;
 
-        public EFUnitOfWorkAule(IAulaRepository aule, ContestoCorso contesto) : base(contesto)
+        public EFUnitOfWorkAule(IAulaRepository aule, ContestoFinsa contesto) : base(contesto)
         {
             repoAule = aule;
         }
@@ -50,7 +50,7 @@ namespace CorsiOnline.Models.UnitOfWorks
             {
                 return null;
             }
-        }
+        }        
 
         public void RegistraAulaPerCorso(string a, string c, DateTime d)
         {

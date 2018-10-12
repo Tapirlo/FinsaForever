@@ -22,7 +22,7 @@ namespace CorsiOnline.Controllers.ApiControllers
             repository = repo;
         }
         [HttpPost("RegistraAula")]
-        public IActionResult RegistraAula(RegistraAulaModel model )
+        public IActionResult RegistraAula([FromBody]RegistraAulaModel model )
         {
             try
             {

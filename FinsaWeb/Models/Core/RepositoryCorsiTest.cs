@@ -4,7 +4,7 @@ using CorsiOnline.Models.Database;
 using System.Linq;
 namespace CorsiOnline.Models.Core
 {
-    public class RepositoryCorsiTest:IRepositoryCorsi
+    public class RepositoryCorsiTest:ICorsiRepository
     {
         private List<Corso> corsi;
         public RepositoryCorsiTest()

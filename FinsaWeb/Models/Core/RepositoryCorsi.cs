@@ -8,15 +8,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CorsiOnline.Models.Core
 {
-    public class RepositoryCorsi : IRepositoryCorsi, IDisposable
+    public class RepositoryCorsi : ICorsiRepository, IDisposable
     {
         public void Dispose()
         {
             contesto.Dispose();
         }
-        private ContestoCorso contesto;
+        private ContestoFinsa contesto;
 
-        public RepositoryCorsi(ContestoCorso ctx)
+        public RepositoryCorsi(ContestoFinsa ctx)
         {
             contesto = ctx;
         }

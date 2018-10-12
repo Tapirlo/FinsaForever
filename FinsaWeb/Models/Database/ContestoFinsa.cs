@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CorsiOnline.Models.Database
 {
-    public class ContestoCorso:DbContext
+    public class ContestoFinsa:DbContext
     {
 
-        public ContestoCorso(DbContextOptions<ContestoCorso> options) : base(options)
+        public ContestoFinsa(DbContextOptions<ContestoFinsa> options) : base(options)
         {
 
         }

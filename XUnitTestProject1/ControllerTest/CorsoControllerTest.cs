@@ -16,12 +16,12 @@ namespace XUnitTestProject1.ControllerTest
 {
         public class CorsoControllerTest
         {
-        private Mock<IRepositoryCorsi> mockRepositoryCorsi;
+        private Mock<ICorsiRepository> mockRepositoryCorsi;
         private ITestOutputHelper output;
         public CorsoControllerTest(ITestOutputHelper o)
         {
             output = o;
-            mockRepositoryCorsi = new Mock<IRepositoryCorsi>();
+            mockRepositoryCorsi = new Mock<ICorsiRepository>();
 
             mockRepositoryCorsi.SetReturnsDefault<bool>(true);
             Corso[] corsi ={

@@ -11,9 +11,9 @@ namespace CorsiOnline.Models.Core
 {
     public class RepositoryDocenti : IDocentiRepository
     {
-        private ContestoCorso contesto;
+        private ContestoFinsa contesto;
 
-        public RepositoryDocenti(ContestoCorso ctx)
+        public RepositoryDocenti(ContestoFinsa ctx)
         {
             contesto = ctx;
             contesto = ctx;

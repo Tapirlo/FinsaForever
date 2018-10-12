@@ -13,5 +13,6 @@ namespace CorsiOnline.Models
         bool RegistraAulaPerCorso(string a, string c, DateTime d);
         bool UpdateAula(Aula a);
         Aula GetAulaById(string id);
+        
     }
 }

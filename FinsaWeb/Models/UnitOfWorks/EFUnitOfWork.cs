@@ -11,9 +11,9 @@ namespace CorsiOnline.Models.UnitOfWorks
 {
     public class EFUnitOfWork : IUnitOfWork
     {
-        private ContestoCorso ctx;
+        private ContestoFinsa ctx;
 
-        public EFUnitOfWork( ContestoCorso contesto)
+        public EFUnitOfWork( ContestoFinsa contesto)
         {
             ctx = contesto;
         }
