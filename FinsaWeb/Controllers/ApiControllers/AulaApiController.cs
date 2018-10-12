@@ -6,6 +6,7 @@ using CorsiOnline.Models;
 using CorsiOnline.Models.Core.UnitOfWorks;
 using CorsiOnline.Models.Database;
 using CorsiOnline.ViewModels;
+using CorsiOnline.ViewModels.DTOS;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -76,7 +77,7 @@ namespace CorsiOnline.Controllers.ApiControllers
             {
                 return BadRequest();
             }
-            return Ok(aula);
+            return Ok(new AulaModels(aula));
         }
         [HttpPost("InserisciAula")]
         public IActionResult InserisciAula([FromBody] Aula aula)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CorsiOnline.Models.Database;
 using CorsiOnline.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace CorsiOnline.Models.Core
@@ -53,8 +54,9 @@ namespace CorsiOnline.Models.Core
 
         public Aula GetAulaById(string id)
         {
-            return context.Aule.Where(x => x.NomeAula == id).First();
+            return context.Aule.Where(x => x.NomeAula == id).Include(x => x.PrenotazioniAule).First();
         }
+        
         
     }
 }
